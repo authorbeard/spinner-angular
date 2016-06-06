@@ -1,0 +1,17 @@
+{
+  "name": "spinner-angular",
+  "homepage": "https://github.com/authorbeard/spinner-angular",
+  "authors": [
+    "authorbeard <msnolan@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

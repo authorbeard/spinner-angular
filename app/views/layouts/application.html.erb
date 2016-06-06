@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>SpinnerAngular</title>
+  <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+Main layout page
 
-<%= yield %>
-
+  <div ng-app="app">
+    <ui-view></ui-view>
+  </div>
+  
 </body>
 </html>
