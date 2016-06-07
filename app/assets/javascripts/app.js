@@ -2,7 +2,6 @@ angular
     .module('app', ['ui.router', 
                     'templates',
                     'Devise'
-
                     ])
     .config(function ($stateProvider, $urlRouterProvider, AuthProvider){
         $stateProvider
