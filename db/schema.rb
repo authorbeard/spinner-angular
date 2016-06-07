@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607135741) do
+ActiveRecord::Schema.define(version: 20160607142759) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
@@ -29,6 +29,34 @@ ActiveRecord::Schema.define(version: 20160607135741) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "name"
+    t.text     "namevariations"
+    t.text     "profile"
+    t.string   "releases_url"
+    t.string   "resource_url"
+    t.string   "uri"
+    t.text     "urls"
+    t.integer  "discogs_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_albums", force: :cascade do |t|
+    t.integer  "spins",      default: 0
+    t.datetime "last_spun"
+    t.integer  "user_id"
+    t.integer  "album_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

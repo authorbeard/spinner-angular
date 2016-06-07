@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :songs
     root 'application#angular'
 
     devise_for :users
