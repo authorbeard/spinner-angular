@@ -13,7 +13,13 @@ class ApplicationController < ActionController::Base
     render 'layouts/application'
   end
 
+  private
+    def set_user
+      @user||= current_user
+    end
+
   protected
     def verified_request?
       super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
+    end
 end

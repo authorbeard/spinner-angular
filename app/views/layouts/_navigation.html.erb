@@ -47,7 +47,7 @@
             <li><% if current_user && current_user.oauth_token %> 
                   <%= link_to "Fart around on Discogs, yo", collection_path(current_user) %>
                 <% else %>
-                  <%= link_to "Discogs is awesome! Use it here!", authorize_discogs_path %>
+                  <a href= "" ui-sref='discogs'> "Discogs is awesome! Use it here!" >
                 <% end %></li>
           </ul>
         </li>

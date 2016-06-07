@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-
-  resources :songs
     root 'application#angular'
+
+    resources :songs
+
 
     devise_for :users
     as :user do
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
       get "/signout" => "devise/sessions#destroy"
     end
     resources :users, only: [:show, :edit, :update, :destroy]
+    post "users/:id/albums/:id/remove", to: "users#remove_album", as: "remove_album"
+    get "users/:id/collection", to: "users#collection", as: "collection"
 
 
     resources :albums
