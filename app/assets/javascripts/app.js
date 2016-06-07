@@ -1,6 +1,6 @@
 angular 
     .module('app', ['ui.router', 'templates'])
-    .config(function ($stateProvider, $urlRouterProvider){
+    .config(function ($stateProvider, $urlRouterProvider, AuthProvider){
         $stateProvider
             .state('home', {
                 url: '/',
