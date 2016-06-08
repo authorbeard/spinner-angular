@@ -11,8 +11,16 @@ function HomeCtrl(Auth, $cookies, $scope, $state, $http){
             'password': this.password
         }
 
-        Auth.login(credentials).then(function(user){
+        var config = {
+            headers: {
+                'X-HTTP-Method-Override': 'POST'
+            }
+        };
+
+        Auth.login(credentials, config).then(function(user){
             this.user = user.user
+        debugger;
+            $state.reload()
         }, function(error){
             alert('Something went wrong')
             console.log(error)
