@@ -7,14 +7,19 @@
 
   def angular
   # byebug
-    if current_user
+    # if current_user
+      # byebug
       render "layouts/angular"
-    else
-      redirect_to signin_path, layout: 'sessions'
-    end
+    # else
+    #   redirect_to signin_path, layout: 'sessions'
+    # end
   end
 
   def after_sign_in_path_for(resource)
+      root_path
+  end
+
+  def after_sign_out_path_for(resource)
       root_path
   end
 
