@@ -1,11 +1,14 @@
-function HomeCtrl(Auth, $cookies, $scope, $state, $http){
-    this.message = "home controller, bitches"
+function HomeCtrl(Auth, $cookies, $scope, $state, $http, user){
 
-    this.user=Auth.isAuthenticated()
+    this.user=user
+
 
     this.auth = function(){
         $state.go('auth')
     }
+
+
+
 
 
 

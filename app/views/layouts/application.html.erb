@@ -4,6 +4,7 @@
   <title>SpinnerAngular</title>
   <%= javascript_include_tag 'application' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= yield :stylesheets %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,10 +13,11 @@
   <%= render 'layouts/messages' %>
 
 rails views/layouts/application.html.erb
-
-  <div ng-app="app">
+<!--   <div id="app-view" ng-app="app">
     <ui-view></ui-view>
-  </div>
+  </div> -->
+
+  <%= yield(:content) or yield %>
   
 </body>
 </html>

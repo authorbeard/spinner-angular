@@ -13,6 +13,18 @@ angular
                 url: '/',
                 templateUrl: 'app/views/home.html',
                 controller: 'HomeCtrl as home',
+                resolve: {
+                    user: function(Auth){
+                        return Auth.currentUser().then(function(user){
+                debugger;
+                            return user.user
+                            console.log(user)
+                        }, function(error){
+                debugger;
+                            console.log(error)
+                        })
+                    }
+                }
 
             })
 
@@ -27,6 +39,7 @@ angular
                 //     }
                 // }
             })
+
 
             /// All unauthorized users go here to register/login
             /// No auto-redirect, just no other choice on homepage

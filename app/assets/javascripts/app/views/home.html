@@ -1,19 +1,17 @@
+<h1>Homepage, bitches</h1>
+
+
 <div ng-switch="home.user">
     <div ng-switch-when="false">
         <div class="login">
             <a href="" class="login login-prompt" ui-sref='user.auth'>Log in or register.</a>
         </div>
     </div>
-    <div ng-switch-when="true">
+    <div ng-switch-default>
         <div class="welcome">
             <p>Hey there, {{ home.user }} </p>
+            <a href="" ui-sref="user.logout">Log out</a>
         </div>
     </div>
     
 </div>
-
-
-<h1>Homepage, bitches</h1>
-
-<p>{{ home.message }}</p>
-<p>{{ home.currentUser }}</p>
