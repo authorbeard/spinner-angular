@@ -1,0 +1,33 @@
+<form id='login_form' ng-submit="home.logIn" class="devise devise-auth">
+  <p>Username: <input name='username'
+            type='username'
+            required='false'
+            ng-maxlenght='20'
+            ng-model='ctrl.username' /></p>    
+  
+    <div ng-show='form.username.$touched' ng-messages='form.username.$error'>
+        <div ng-message="required">C'mon, tell us about yerself</div>
+        <div ng-message="maxlength">Dude, 20 characters is more than enough</div>
+    </div>
+
+  <p>Email: <input name='email'
+            type='email'
+            required='true'
+            ng-model='ctrl.email' /></p>    
+  
+    <div ng-show='form.email.$touched' ng-messages='form.email.$error'>
+        <div ng-message="required">Gotta give us an email</div>
+        <div ng-message='email'>That don't look like an email address to me.</div>
+    </div>
+
+  <p>Password: <input type='password'
+            required='true'
+            ng-model='ctrl.password' /></p>    
+  
+    <div ng-show='form.pasword.$touched' ng-messages='form.password.$error'>
+        <div ng-message="required">C'mon, tell us about yerself</div>
+        
+    </div>
+
+  <input type='submit' value='Log me in!'>
+</form>

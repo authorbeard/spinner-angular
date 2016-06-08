@@ -1,40 +1,22 @@
 function HomeCtrl(Auth, $cookies, $scope, $state, $http){
+    this.user
+    this.email = ''
+    this.password = '' 
+    this.username = ''
 
-    $scope.$on('devise:unauthorized', function(event, xhr, deferred) {
-            // Disable interceptor on _this_ login request,
-            // so that it too isn't caught by the interceptor
-            // on a failed login.
-          debugger;
-            var config = {
-                interceptAuth: false
-            };
+    this.logIn = function(){
+        var credentials = {
+            'email': this.email,
+            'password': this.password
+        }
 
-            // Ask user for login credentials
-            Auth.login(credentials, config).then(function() {
-                // Successfully logged in.
-                // Redo the original request.
-                return $http(xhr.config);
-            }).then(function(response) {
-                // Successfully recovered from unauthorized error.
-                // Resolve the original request's promise.
-                deferred.resolve(response);
-            }, function(error) {
-                // There was an error logging in.
-                // Reject the original request's promise.
-                deferred.reject(error);
-            });
-        });
-
-        // Request requires authorization
-        // Will cause a `401 Unauthorized` response,
-        // that will be recovered by our listener above.
-        $http.delete('/users/1', {
-            interceptAuth: true
-        }).then(function(response) {
-            // Deleted user 1
-        }, function(error) {
-            // Something went wrong.
-        });
+        Auth.login(credentials).then(function(user){
+            this.user = user.user
+        }, function(error){
+            alert('Something went wrong')
+            console.log(error)
+        })
+    }
 
 
     this.logOut = function(){
@@ -48,7 +30,7 @@ function HomeCtrl(Auth, $cookies, $scope, $state, $http){
 
     $scope.$on('devise:logout', function(event, oldCurrentUser){
      debugger;
-      $state.go('user.login')
+      $state.go('/')
     })
 
 
