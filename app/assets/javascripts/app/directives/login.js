@@ -1,9 +1,18 @@
 function Login(){
     return {
       transclude: true,
+      require: 'ng-messages',
       controller: 'HomeCtrl',
       controllerAs: 'home',
       templateUrl: 'app/views/login_form.html',
+      // link: function($scope, $element, $attrs, $ctrl){
+      //     var scope = $scope
+      //     var attrs = $attrs
+      //     debugger;
+      //     $element.on('click', function(scope, attrs){
+      //       debugger;
+      //     })
+      // }
     }
 
 }

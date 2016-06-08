@@ -4,7 +4,8 @@ function HomeCtrl(Auth, $cookies, $scope, $state, $http){
     this.password = '' 
     this.username = ''
 
-    this.logIn = function(){
+    this.authorize = function(){
+      debugger;
         var credentials = {
             'email': this.email,
             'password': this.password

@@ -2,14 +2,12 @@ angular
     .module('app', ['ui.router', 
                     'templates',
                     'Devise',
-                    'ngCookies'
+                    'ngCookies',
+                    'ngMessages'
                     ])
-    .config(function ($stateProvider, $urlRouterProvider, AuthProvider, AuthInterceptProvider){
-        // $httpProvider.defaults.withCredentials = true;
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
+        $httpProvider.defaults.withCredentials = true;
         AuthInterceptProvider.interceptAuth(true)
-        // AuthProvider.logoutMethod('GET')
-        // AuthProvider.loginMethod('GET')
-        // AuthProvider.interceptAuth(true)
 
         $stateProvider
             .state('home', {
