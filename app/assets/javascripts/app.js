@@ -16,17 +16,17 @@ angular
                 controller: 'HomeCtrl as home',
             })
 
-            // /// Display user info/collection here ///
-            // .state('user', {
-            //     url: 'user/:id',
-            //     templateURL: 'app/views/user.html',
-            //     controller: 'UserCtrl as user',
-            //     resolve: {
-            //         user: function(Auth){
-            //             return Auth.currentUser()
-            //         }
-            //     }
-            // })
+            /// Display user info/collection here ///
+            .state('user', {
+                url: 'user/:id',
+                templateURL: 'app/views/user.html',
+                controller: 'UserCtrl as user',
+                resolve: {
+                    user: function(Auth){
+                        return Auth.currentUser()
+                    }
+                }
+            })
 
             // .state('user.login', {
             //     url: 'login',

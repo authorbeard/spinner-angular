@@ -1,11 +1,19 @@
 function HomeCtrl(Auth, $cookies, $scope, $state, $http){
-    this.user
+    this.getUser = function(){
+      debugger;
+        Auth.currentUser().then(function(user){
+            debugger;
+            this.user=user.user
+        }, function(error){
+            debugger;
+        })
+    }
+
     this.email = ''
     this.password = '' 
     this.username = ''
 
     this.authorize = function(){
-      debugger;
         var credentials = {
             'email': this.email,
             'password': this.password
@@ -19,8 +27,8 @@ function HomeCtrl(Auth, $cookies, $scope, $state, $http){
 
         Auth.login(credentials, config).then(function(user){
             this.user = user.user
-        debugger;
-            $state.reload()
+            $cookies.put('user_name', this.user.name)
+            $cookies.put('user_id', this.user.id)
         }, function(error){
             alert('Something went wrong')
             console.log(error)
@@ -37,14 +45,23 @@ function HomeCtrl(Auth, $cookies, $scope, $state, $http){
       })
     }
 
+    $scope.$on('devise:login', function(event, currentUser) {
+        debugger;
+        // alert('Hey there, ' + currentUser.user.name )
+        $state.go($state.current, {user:currentUser}, {reload: true})
+    });
+
+    $scope.$on('devise:new-session', function(event, currentUser) {
+        debugger;
+    });
+
     $scope.$on('devise:logout', function(event, oldCurrentUser){
      debugger;
       $state.go('/')
     })
 
 
-
-
+    this.getUser()
 
 }
 
