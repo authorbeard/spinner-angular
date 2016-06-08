@@ -1,9 +1,13 @@
 <div ng-switch="home.user">
-    <div ng-switch-when="unauthorized">
+    <div ng-switch-when="false">
         <div class="login">
-            <p>You gotta log in, dumbass.</p>
+            <a href="" class="login login-prompt" ui-sref='user.auth'>Log in or register.</a>
         </div>
-    <div ng-switch-when=""
+    </div>
+    <div ng-switch-when="true">
+        <div class="welcome">
+            <p>Hey there, {{ home.user }} </p>
+        </div>
     </div>
     
 </div>
