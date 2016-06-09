@@ -23,10 +23,12 @@ angular
                 templateUrl: 'app/views/auth.html',
                 controller: 'SessionCtrl as session',
                 onEnter: function(Auth, $state){
-                    if (Auth.isAuthenticated()){
-                debugger;
-                          $state.go('home.user')
-                    }
+                    Auth.currentUser().then(function(resp){
+                        if (resp.user){
+                            // debugger;
+                            $state.go('home.user', {id: resp.user.id})
+                        }
+                    })
                 }
             })
 
@@ -34,6 +36,18 @@ angular
                 url: 'user/:id',
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
+                resolve: {
+                      user: function(SessionSvc){
+                          return SessionSvc.currentUser
+                      }
+                },
+                onEnter: function(Auth, $state, SessionSvc){
+                    // debugger;
+                    if (!SessionSvc.currentUser){
+                        $state.go('home.auth')
+                    }
+
+                }
 
             })
 

@@ -1,4 +1,4 @@
-function SessionCtrl(Auth, $scope, $state, $http){
+function SessionCtrl(Auth, $scope, $state, $http, SessionSvc){
 
     this.message="session controller message"
 
@@ -26,7 +26,6 @@ function SessionCtrl(Auth, $scope, $state, $http){
             })
         }else{
             Auth.login(this.user).then(function(resp){
-          // debugger;
                 $state.go('home.user', {id: resp.user.id})
             }, function(error){
                 $scope.$emit('loginError', error.data.error)

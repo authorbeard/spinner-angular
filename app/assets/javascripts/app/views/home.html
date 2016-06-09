@@ -1,12 +1,14 @@
 <p>home.html</p>
-    <div ng-show="user">
-        <div ng-show="user.name">
-          <h3>Hi {{ user.name }}</h3>
+    <div id='user-nav' ng-show="currentUser">
+        <div ng-show="currentUser.name">
+          <h3>Hi {{ currentUser.name }}</h3>
         </div>
 
-        <div ng-show="!user.name">
+        <div ng-show="!currentUser.name">
           <h3>Hey, you should choose a username</h3>
         </div>
         <button ng-click='home.logout()'>Log me out</span>
     </div>
+
+    <!-- <button ng-click='home.getLogin()'>Test getlogin</button> -->
 <ui-view></ui-view>

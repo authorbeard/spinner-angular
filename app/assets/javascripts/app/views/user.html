@@ -1,2 +1,21 @@
-<p>User.html</p>
-{{ user.message }}
+
+    <p>User.html</p>
+
+    <div ng-if='user.currUser' id='user albums-container'>
+      albums container
+        <div class="album album-card" ng-repeat="album in user.currUser.albums">
+            ALBUM DIRECTIVE HERE
+            <!-- {{ album }} -->
+        </div>
+
+        <div ng-show='!user.currUser.albums'>
+            PUT LIBRARY DIRECTIVE HERE
+        <div>  
+
+
+
+    </div>
+
+
+    {{ user.currUser }}
+    {{ user.altUser }}

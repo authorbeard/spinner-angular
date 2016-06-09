@@ -1,33 +1,34 @@
-function HomeCtrl(Auth, $scope, $state, $http){
+function HomeCtrl(Auth, $scope, $state, $http, SessionSvc){
     var home = this 
 
     home.errors = []
 
-    Auth.currentUser()
-        .then(function(user){
-            $scope.user=user.user
-        })
+    $scope.currentUser = null
 
     home.logout = Auth.logout
 
     $scope.$on('devise:login', function(event, userObj) {
-        $scope.user = userObj.user
+        console.log('prev authenticated session')
+        $scope.currentUser = userObj.user
+        SessionSvc.create(userObj)
         $state.go('home.user', {id: userObj.user.id })
     });
 
     $scope.$on('devise:new-session', function(event, userObj) {
-        $scope.user = userObj.user
+        console.log('new login')
+        $scope.currentUser = userObj.user
         $state.go('home.user', {id: userObj.user.id })
     });
 
     $scope.$on('devise:logout', function(event, userObj){
         // alert('So long, ' + userObj.user.name)
-        $scope.user = null
-        $state.go('home.auth')
+        SessionSvc.destroy()
+        $scope.currentUser = null
+        $state.go('home.auth', {}, {reload: true})
     })
 
     $scope.$on('devise:unauthorized', function(event, xhr, deferred){
-        deferred.reject()
+        // debugger;
     })
 
 }
