@@ -1,9 +1,8 @@
 function Login(){
     return {
       transclude: true,
-      require: 'ng-messages',
-      controller: 'HomeCtrl',
-      controllerAs: 'home',
+      controller: SessionCtrl,
+      controllerAs: 'session',
       templateUrl: 'app/views/login_form.html',
       // link: function($scope, $element, $attrs, $ctrl){
       //     var scope = $scope

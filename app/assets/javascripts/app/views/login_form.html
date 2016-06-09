@@ -1,23 +1,11 @@
-<form name='devise_login' id='devise_login' ng-submit="home.authorize()" class="devise devise-login">
-  <label>Username: </label>
-      <input name='username'
-                type='username'
-                ng-maxlength='20'
-                ng-trim
-                ng-model='home.username' /> 
-        {{ home.username }}  
-      
-        <div ng-show='devise_login.username.$dirty' ng-messages='devise_login.username.$error'>
-            <div ng-message="required">Usernames are fun! And MANDATORY.</div>
-            <div ng-message="maxlength">Dude, 20 characters is more than enough. Try again.</div>
-        </div><br></br>
+<form name='devise_login' id='devise_login' ng-submit="session.authorize()" class="devise devise-login">
 
   <label>Email: </label>
 
       <input name='email'
                 type='email'
                 required='true'
-                ng-model='home.email' />   
+                ng-model='session.user.email' />   
       
         <div ng-show='devise_login.email.$dirty' ng-messages='devise_login.email.$error'>
             <div ng-message="required">Gotta give us an email</div>
@@ -30,7 +18,7 @@
                 required='required'
                 ng-minlength='6'
                 ng-maxlength='128'
-                ng-model='home.password' />   
+                ng-model='session.user.password' />   
       
         <div ng-show='devise_login.password.$dirty' ng-messages='devise_login.password.$error'>
             <div ng-message="minlength">Too short!</div>
@@ -38,7 +26,8 @@
             <div ng-message="required">You obviously need a password, dummy</div>
             
         </div><br></br>
+  <input type='checkbox' id='new_user' value='register' ng-model='session.user.new'><label>I'm new here </label><br>
 
-  <input type='submit' value='Log me in!' data-type="login" />
+  <input type='submit' value='Get spinning!' data-type="login" />
   <!-- <input type='submit' value='Register!' data-type="register"> -->
 </form>

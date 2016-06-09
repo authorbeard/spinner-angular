@@ -14,40 +14,31 @@ angular
                 url: '/',
                 templateUrl: 'app/views/home.html',
                 controller: 'HomeCtrl as home',
+                abstract: true
+
             })
 
-            /// Display user info/collection here ///
-            .state('user', {
-                url: 'user/:id',
-                templateURL: 'app/views/user.html',
-                controller: 'UserCtrl as user',
-                resolve: {
-                    user: function(Auth){
-                        return Auth.currentUser()
+            .state('home.auth', {
+                url: 'auth', 
+                templateUrl: 'app/views/auth.html',
+                controller: 'SessionCtrl as session',
+                onEnter: function(Auth, $state){
+                    if (Auth.isAuthenticated()){
+                          $state.go('home.user')
                     }
                 }
             })
 
-            // .state('user.login', {
-            //     url: 'login',
-            //     templateUrl: 'app/views/auth.html',
-            //     controller: 'DeviseCtrl'
+
+
+            // .state('home.user', {
+            //     url: 'user/:id',
+            //     templateUrl: 'app/views/user.html',
+            //     controller: 'UserCtrl as user',
+
             // })
 
-            // .state('albums', {
-            //     url: 'albums', 
-            //     templateUrl: 'app/views/albums.html', 
-            //     controller: 'AlbumCtrl as albums'
-            // })
-
-            // .state('albums.detail', {
-            //     url: 'albums/:id',
-            //     templateUrl: 'app/views/album.html',
-            //     controller: 'AlbumCtrl as albums'
-            // })
-
-
-        $urlRouterProvider.otherwise('/')
+        $urlRouterProvider.otherwise('auth')
 
 
     })

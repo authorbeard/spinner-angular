@@ -6,13 +6,7 @@
   after_filter :set_csrf_cookie_for_ng
 
   def angular
-  # byebug
-    # if current_user
-      # byebug
       render "layouts/angular"
-    # else
-    #   redirect_to signin_path, layout: 'sessions'
-    # end
   end
 
   def after_sign_in_path_for(resource)
@@ -30,7 +24,6 @@
 
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
-    puts cookies['XSRF-TOKEN']
   end
 
   protected
