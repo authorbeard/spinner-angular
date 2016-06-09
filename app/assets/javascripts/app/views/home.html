@@ -1,2 +1,12 @@
 <p>home.html</p>
-<ui-view><ui-view>
+    <div ng-show="user">
+        <div ng-show="user.name">
+          <h3>Hi {{ user.name }}</h3>
+        </div>
+
+        <div ng-show="!user.name">
+          <h3>Hey, you should choose a username</h3>
+        </div>
+        <button ng-click='home.logout()'>Log me out</span>
+    </div>
+<ui-view></ui-view>

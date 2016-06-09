@@ -1,16 +1,10 @@
 <p>auth.html</p>
 {{session.message}}
 
+
 <div ng-show="!user" class="devise devise-unath">
     <h3>Heya! Sign up or Sign in:</h3>
         <login></login>
-        <!-- <register></register> -->
-</div>
-
-
-<div ng-show="user">
-    <h3>Hi {{ user.name}}</h3>
-    <logout></logout>
 </div>
 
 <p>Showing user:</p>

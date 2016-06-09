@@ -24,19 +24,18 @@ angular
                 controller: 'SessionCtrl as session',
                 onEnter: function(Auth, $state){
                     if (Auth.isAuthenticated()){
+                debugger;
                           $state.go('home.user')
                     }
                 }
             })
 
+            .state('home.user', {
+                url: 'user/:id',
+                templateUrl: 'app/views/user.html',
+                controller: 'UserCtrl as user',
 
-
-            // .state('home.user', {
-            //     url: 'user/:id',
-            //     templateUrl: 'app/views/user.html',
-            //     controller: 'UserCtrl as user',
-
-            // })
+            })
 
         $urlRouterProvider.otherwise('auth')
 

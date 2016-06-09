@@ -1,12 +1,7 @@
-function UserCtrl(Auth, $cookies, $scope){
+function UserCtrl(Auth, $scope){
     this.message = "user controller, bitches"
     
-    this.test=function(){
-      debugger;
-    }
 
-
-  this.test()
 }
 
 angular 
