@@ -1,8 +1,6 @@
-function UserCtrl($scope, user){
+function UserCtrl(){
     var ctrl = this
 
-    ctrl.altUser = SessionSvc.currentUser
-    ctrl.currUser = user
 
     
 

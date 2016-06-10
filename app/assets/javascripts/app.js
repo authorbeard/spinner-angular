@@ -36,11 +36,11 @@ angular
                 url: 'user/:id',
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
-                resolve: {
-                      user: function(SessionSvc){
-                          return SessionSvc.currentUser
-                      }
-                },
+                // resolve: {
+                //       user: function(SessionSvc){
+                //           return SessionSvc.currentUser
+                //       }
+                // },
                 onEnter: function(Auth, $state, SessionSvc){
                     // debugger;
                     if (!SessionSvc.currentUser){
