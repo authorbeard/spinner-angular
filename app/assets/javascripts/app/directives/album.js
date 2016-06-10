@@ -1,18 +1,16 @@
 function Album(){
     return {
       restrict: 'E', 
+      // replace: true,
       transclude: true,
-      require: '^albums'
       scope: {
           album: '=data'
       },
       templateUrl: 'app/views/albumTile.html',
-      link: function($scope, $element, $attrs, $ctrl){
-        debugger;
+      controller: function($scope){
+        // debugger;
+          this.album=$scope.album
       }
-
-
-
       
     }
 

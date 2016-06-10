@@ -3,7 +3,7 @@ function UserCtrl($scope){
     console.log('userctrl')
     // console.log('userctrl sez: ' + sessionStorage['currUser'])
     
-    ctrl.user = JSON.parse(sessionStorage['currUser'])
+    ctrl.currUser = JSON.parse(sessionStorage['currUser'])
 }
 
 angular 

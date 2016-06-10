@@ -3,7 +3,8 @@ angular
                     'templates',
                     'Devise',
                     'ngCookies',
-                    'ngMessages'
+                    'ngMessages',
+                    'ngResource'
                     ])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
         $httpProvider.defaults.withCredentials = true;
