@@ -1,14 +1,18 @@
-<p>home.html</p>
-    <div id='user-nav' ng-show="currentUser">
-        <div ng-show="currentUser.name">
-          <h3>Hi {{ currentUser.name }}</h3>
-        </div>
 
-        <div ng-show="!currentUser.name">
-          <h3>Hey, you should choose a username</h3>
-        </div>
-        <button ng-click='home.logout()'>Log me out</span>
+<div id='user-nav' ng-show="currUser">
+    <div ng-show="currUser.name ">
+      <h3>Hi {{ currUser.name }}</h3>
+      <p>Collection size: {{ currUser.albums.length}} </p>
+      <p>Edit my profile</p>
+      <p>Edit my collection</p>
     </div>
+
+    <div ng-show="!currUser.name ">
+      <label>Hey, you should choose a username</label>
+            <p>edit user directive</p>
+    </div>
+    <button ng-click='home.logout()'>Log me out</span>
+</div>
 
     <!-- <button ng-click='home.getLogin()'>Test getlogin</button> -->
 <ui-view></ui-view>

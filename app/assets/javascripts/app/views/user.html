@@ -1,17 +1,17 @@
 
     <p>User.html</p>
-
     <div>
         Filter bar
-
     </div>
 
-    <div ng-if='currentUser' id='user albums-container'>
+    <p>If user set, there should be crap below</p>
+
+    <div ng-if='user.user' id='user albums-container'>
       albums container
         <div class="album album-card" ng-repeat="album in currentUser.albums">
+
             ALBUM DIRECTIVE HERE
-            <img src="assets/{{album.cover}}">
-            {{ album }}
+            <album></album>
         </div>
 
         <div ng-show='!user.currUser.albums'>
@@ -23,5 +23,5 @@
     </div>
 
 
-    {{ user.currUser }}
+    <!-- {{ user.currUser }} -->
     

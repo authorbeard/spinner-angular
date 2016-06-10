@@ -22,14 +22,14 @@ angular
                 url: 'auth', 
                 templateUrl: 'app/views/auth.html',
                 controller: 'SessionCtrl as session',
-                onEnter: function(Auth, $state){
-                    Auth.currentUser().then(function(resp){
-                        if (resp.user){
-                            // debugger;
-                            $state.go('home.user', {id: resp.user.id})
+                onEnter: function(){
+                        if (sessionStorage['currUser']){
+                            debugger;
+                            console.log('redirect from auth')
+                            var user = JSON.parse(sessionStorage['currUser'])
+                            $state.go('home.user', {id: user.id})
                         }
-                    })
-                }
+                    }
             })
 
             .state('home.user', {
@@ -37,16 +37,18 @@ angular
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
                 // resolve: {
-                //       user: function(SessionSvc){
-                //           return SessionSvc.currentUser
+                //       THIS IS WHERE I'LL SEND THE SESSION INFO TO BACKEND SERVICE TO GET ALBUMS
                 //       }
                 // },
-                onEnter: function(Auth, $state, SessionSvc){
-                    // debugger;
-                    if (!SessionSvc.currentUser){
-                        $state.go('home.auth')
-                    }
-
+                onEnter: function($state){
+                    //THIS NEEDS TO EMIT AN ALERT TO BE PICKED UP BY A DIRECTIVE THAT
+                    //WILL RENDER THE LOGIN PAGE/TEMPLATE/DIALOG
+                        // debugger;
+                        console.log('user onEnter sez: ' + sessionStorage['currUser'])
+                        if (!sessionStorage['currUser']){
+                            // debugger;
+                            $state.go('home.auth', {reload: true})
+                        }
                 }
 
             })

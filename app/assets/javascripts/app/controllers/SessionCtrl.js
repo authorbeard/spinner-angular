@@ -1,6 +1,6 @@
 function SessionCtrl(Auth, $scope, $state, $http, SessionSvc){
 
-    this.message="session controller message"
+    console.log('sessionctrl')
 
     var config = {
         headers: {
@@ -26,7 +26,8 @@ function SessionCtrl(Auth, $scope, $state, $http, SessionSvc){
             })
         }else{
             Auth.login(this.user).then(function(resp){
-                $state.go('home.user', {id: resp.user.id})
+                console.log('successful login')
+                // $state.go('home.user', {id: resp.user.id})
             }, function(error){
                 $scope.$emit('loginError', error.data.error)
             })

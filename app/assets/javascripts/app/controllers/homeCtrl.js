@@ -1,35 +1,52 @@
 function HomeCtrl(Auth, $scope, $state, $http, SessionSvc){
+    console.log('homectrl')
     var home = this 
 
-    home.errors = []
+    home.currUser = function(){
+        if (sessionStorage['currUser']){
+            $scope.currUser = JSON.parse(sessionStorage['currUser'])
+        }else{
+            $scope.currUser = null
+        }
+    }
 
-    $scope.currentUser = null
+    
+    console.log('homectrl sez: ' + $scope.currentUser)
+
+    home.setUser = function(userObj){
+        debugger;
+        console.log('setting user')
+        sessionStorage['currUser']=JSON.stringify(userObj.user)
+        $scope.currUser = userObj.user
+        $state.go('home.user', {id: $scope.currUser.id })
+    }
 
     home.logout = Auth.logout
 
     $scope.$on('devise:login', function(event, userObj) {
         console.log('prev authenticated session')
-        $scope.currentUser = userObj.user
-        SessionSvc.create(userObj)
-        $state.go('home.user', {id: userObj.user.id })
+        debugger;
+        home.setUser(userObj)
     });
 
     $scope.$on('devise:new-session', function(event, userObj) {
         console.log('new login')
-        $scope.currentUser = userObj.user
-        $state.go('home.user', {id: userObj.user.id })
     });
 
     $scope.$on('devise:logout', function(event, userObj){
         // alert('So long, ' + userObj.user.name)
-        SessionSvc.destroy()
         $scope.currentUser = null
+        sessionStorage.clear()
         $state.go('home.auth', {}, {reload: true})
     })
 
     $scope.$on('devise:unauthorized', function(event, xhr, deferred){
         // debugger;
     })
+
+
+    home.currUser()
+
 
 }
 
