@@ -1,5 +1,6 @@
-function HomeCtrl(Auth, $scope, $state, $http, SessionSvc){
+function HomeCtrl(Auth, $scope, $state){
     console.log('homectrl')
+    
     var home = this 
 
     home.currUser = function(){
@@ -10,11 +11,13 @@ function HomeCtrl(Auth, $scope, $state, $http, SessionSvc){
         }
     }
 
-    
+    home.currUser()
+
+
     console.log('homectrl sez: ' + $scope.currentUser)
 
     home.setUser = function(userObj){
-        debugger;
+        // debugger;
         console.log('setting user')
         sessionStorage['currUser']=JSON.stringify(userObj.user)
         $scope.currUser = userObj.user
@@ -25,7 +28,7 @@ function HomeCtrl(Auth, $scope, $state, $http, SessionSvc){
 
     $scope.$on('devise:login', function(event, userObj) {
         console.log('prev authenticated session')
-        debugger;
+        // debugger;
         home.setUser(userObj)
     });
 
@@ -45,7 +48,7 @@ function HomeCtrl(Auth, $scope, $state, $http, SessionSvc){
     })
 
 
-    home.currUser()
+
 
 
 }

@@ -1,25 +1,24 @@
 
     <p>User.html</p>
-    <div>
-        Filter bar
+    <div id="filter_bar">
+<!--         <tabs active='0'>
+            <tab></tab>
+            <tab></tab>
+            <tab></tab>
+
+        </tabs> -->
     </div>
 
     <p>If user set, there should be crap below</p>
 
-    <div ng-if='user.user' id='user albums-container'>
-      albums container
-        <div class="album album-card" ng-repeat="album in currentUser.albums">
+    <div ng-if='user.user' class='user albums_container' id='user albums_container'>
+        <albums active='0'>
+            <album data='album'></album>
+        </albums>
 
-            ALBUM DIRECTIVE HERE
-            <album></album>
-        </div>
-
-        <div ng-show='!user.currUser.albums'>
-            PUT LIBRARY DIRECTIVE HERE
+        <div ng-show='!user.user.albums'>
+            <a href='' ui-sref='library'>Get some damn records</a>
         <div>  
-
-
-
     </div>
 
 

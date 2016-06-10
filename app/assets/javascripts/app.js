@@ -37,14 +37,16 @@ angular
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
                 // resolve: {
-                //       THIS IS WHERE I'LL SEND THE SESSION INFO TO BACKEND SERVICE TO GET ALBUMS
+                //       // THIS IS WHERE I'LL SEND THE SESSION INFO TO BACKEND SERVICE TO GET ALBUMS
+                //       user: function()
+
                 //       }
                 // },
                 onEnter: function($state){
                     //THIS NEEDS TO EMIT AN ALERT TO BE PICKED UP BY A DIRECTIVE THAT
                     //WILL RENDER THE LOGIN PAGE/TEMPLATE/DIALOG
                         // debugger;
-                        console.log('user onEnter sez: ' + sessionStorage['currUser'])
+                        // console.log('user onEnter sez: ' + sessionStorage['currUser'])
                         if (!sessionStorage['currUser']){
                             // debugger;
                             $state.go('home.auth', {reload: true})

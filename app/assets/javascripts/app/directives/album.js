@@ -1,9 +1,14 @@
 function Album(){
     return {
-      // transclude: true,
+      restrict: 'E', 
+      transclude: true,
+      require: '^albums'
+      scope: {
+          album: '=data'
+      },
       templateUrl: 'app/views/albumTile.html',
-      controller: function($scope){
-        // debugger;
+      link: function($scope, $element, $attrs, $ctrl){
+        debugger;
       }
 
 

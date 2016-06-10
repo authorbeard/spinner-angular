@@ -1,9 +1,7 @@
-<div class="album_tile" id="album.id" data-album={{album}}>
-    <div class="album_cover">
-        <!-- <img src="assets/{{album.cover}}"> -->
-    </div>
-    <div class="album_details">
-        <span class="album_details artist" id="album.artist.id">{{album.artist.name}}</span>
-        <span class="album_details title" id="album.id">{{album.title}}></span>
-    </div>
-</div>
+
+  <div class="album_tile" id="{{album.id}}">
+    {{albTile.id}}
+      <span class="album_details cover"><img src="assets/{{album.cover}}"></span>
+      <span class="album_details artist" id="{{album.artist.id}}">{{album.artist.name}}</span>
+      <span class="album_details title" id="{{album.id}}">{{album.title}}</span>
+  </div>

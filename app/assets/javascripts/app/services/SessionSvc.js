@@ -1,26 +1,26 @@
-function SessionSvc(){
+// function SessionSvc(){
 
-    console.log('sessionsvc')
+//     console.log('sessionsvc')
     
 
-    this.currentUser = null
-    this.id = ''
+//     this.currentUser = null
+//     this.id = ''
 
-    this.create=function(userObj){
-      debugger;
-        this.currentUser=userObj
-        this.id=userObj.id
+//     this.create=function(userObj){
+//       debugger;
+//         this.currentUser=userObj
+//         this.id=userObj.id
 
-    }
+//     }
 
-    this.destroy=function(){
-        debugger;
-        this.currentUser=null
-        this.id=null
-    }
+//     this.destroy=function(){
+//         debugger;
+//         this.currentUser=null
+//         this.id=null
+//     }
 
-}
+// }
 
-angular 
-    .module('app')
-    .service('SessionSvc', SessionSvc)
+// angular 
+//     .module('app')
+//     .service('SessionSvc', SessionSvc)

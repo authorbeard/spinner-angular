@@ -1,4 +1,4 @@
-function SessionCtrl(Auth, $scope, $state, $http, SessionSvc){
+function SessionCtrl(Auth, $scope, $state){
 
     console.log('sessionctrl')
 
