@@ -10,10 +10,9 @@
     </div>
 
     <p>If user set, there should be crap below</p>
-{{ user.user.albums}}
-    <div ng-if='user.currUser' class='user albums_container' id='user albums_container'>
-        <div albums='user.currUser.albums' ng-repeat='album in user.currUser.albums | limitTo:3'>  <!--// removed:  -->
-            <album data='album'></album>
+    <div ng-if='currUser' class='user albums_container' id='user albums_container'>
+        <div albums data='user.currUser.albums'>  <!--// removed:  -->
+            <!-- <album data='album'></album> -->
         </div>
 
         <div ng-show='!user.currUser.albums'>

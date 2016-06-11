@@ -8,7 +8,7 @@ function Album(){
       },
       templateUrl: 'app/views/albumTile.html',
       controller: function($scope){
-        // debugger;
+        debugger;
           this.album=$scope.album
       }
       

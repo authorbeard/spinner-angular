@@ -1,7 +1,9 @@
 function HomeCtrl(Auth, $scope, $state){
     console.log('homectrl')
     
-    var home = this 
+    var home = this
+
+    home.errors = null 
 
     home.currUser = function(){
         if (sessionStorage['currUser']){
@@ -44,8 +46,14 @@ function HomeCtrl(Auth, $scope, $state){
     })
 
     $scope.$on('devise:unauthorized', function(event, xhr, deferred){
-        // debugger;
+        debugger;
+        home.errors = 'Whoops. Check yer login credentials.'
     })
+
+    $scope.$on('error'), function(event, error){
+        console.log('event: ' + event + " error: " + error)
+        home.errors = error
+    }
 
 
 
