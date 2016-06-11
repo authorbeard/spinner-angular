@@ -1,4 +1,4 @@
-function Album(){
+function Album(userAlbumFactory, albumFactory){
     return {
       scope: {
           data: '='
@@ -20,12 +20,12 @@ function Album(){
       controllerAs: 'album',
       
       link: function($scope, $elem, $attrs, $ctrl){
-        // debugger;
-            console.log('album detail link')
             $elem.on('click', function(){
                 $ctrl.spin()
-                $scope.$emit('albSpin', $ctrl.album)
-                $scope.$apply()
+                console.log('update the album on the backend here')
+                userAlbumFactory.update($ctrl.album, function(resp){
+                    // debugger;
+                })
             })
       },
 

@@ -59,7 +59,8 @@ class AlbumsController < ApplicationController
     # redirect_to :back, :notice=>"Awesome choice! <a href='#{album_path(@album)}'>Spin it now</a>"
   end
 
-  def spin   
+  def spin 
+  byebug  
     current_user.spin_it(@album)
     @album=UserAlbum.where(user_id: current_user.id).find_by(album_id: (@album.id))
     render json: @album

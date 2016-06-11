@@ -1,14 +1,14 @@
-function Album($resource) {
-    console.log('spinnerApi')
+function UserAlbumFactory($resource) {
+    console.log('userAlbumFactory')
 
-    var album = $resource('/albums/:id', {id: '@id'}, {
-          query: { method: 'GET',
+    var useralbum = $resource('/user_albums/:id', {id: '@id'}, {
+          show: { method: 'GET',
                    // isArray: true,
                    transformResponse: function(data, header){
                         console.log(JSON.parse(data))
                         return JSON.parse(data)
                   }},
-          patch: { method: 'PATCH', 
+          update: { method: 'PATCH', 
                     transformResponse: function(data, header){
                         console.log(JSON.parse(data))
                         return JSON.parse(data)
@@ -19,14 +19,14 @@ function Album($resource) {
                         return JSON.parse(data)
                   }},
           destroy: { method: 'DELETE'}
-
     })
 
-    return album
+
+    return useralbum
 
 
 }
 
 angular
     .module('app')
-    .factory('Album', Album)
+    .factory('userAlbumFactory', UserAlbumFactory)

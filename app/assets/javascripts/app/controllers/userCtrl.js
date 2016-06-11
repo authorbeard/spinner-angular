@@ -28,7 +28,8 @@ function UserCtrl($scope){
     }
 
     $scope.$on('albSpin', function(event, alb){
-      ctrl.currUser.albums[alb.id - 1].spins ++
+      // ctrl.currUser.albums[alb.id - 1].spins ++
+      debugger;
     })
 
 

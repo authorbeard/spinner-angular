@@ -20,6 +20,12 @@ Rails.application.routes.draw do
 
     resources :songs
 
+    resources :user_albums
+
+
+    
+
+
     
 
 
