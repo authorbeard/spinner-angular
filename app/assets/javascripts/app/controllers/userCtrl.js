@@ -1,6 +1,5 @@
 function UserCtrl($scope){
     var ctrl = this
-    console.log('userctrl')
     // console.log('userctrl sez: ' + sessionStorage['currUser'])
     
     var userData = JSON.parse(sessionStorage['currUser'])
@@ -11,13 +10,33 @@ function UserCtrl($scope){
           albums: userData.user_albums
     }
 
-    console.log(ctrl.currUser)
+    ctrl.selection = 10
 
-    // $scope.$watch(function(){
-    //   return ctrl.currUser.albums.length
-    // }, function(event){
-    //   debugger;
-    // })
+    ctrl.getDispAlbums = function(){
+        ctrl.displayAlbums = ctrl.currUser.albums.slice(0, ctrl.selection)
+      }
+    
+
+    ctrl.addMore=function(){
+          // debugger;
+          ctrl.selection += 10
+          ctrl.getDispAlbums()
+          $scope.$broadcast('addAlbums', event)
+          // var nextSet = ctrl.selection
+
+          // ctrl.displayAlbums.push()
+    }
+
+
+    $scope.$watch(function(){
+      return ctrl.displayAlbums
+      debugger;
+    }, function(event){
+      
+    })
+
+    ctrl.getDispAlbums()
+
 }
 
 angular 

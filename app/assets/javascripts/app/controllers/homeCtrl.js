@@ -1,5 +1,4 @@
 function HomeCtrl(Auth, $scope, $state){
-    console.log('homectrl')
     
     var home = this
 
@@ -15,8 +14,6 @@ function HomeCtrl(Auth, $scope, $state){
 
     home.currUser()
 
-
-    console.log('homectrl sez: ' + $scope.currentUser)
 
     home.setUser = function(userObj){
         // debugger;
@@ -39,7 +36,6 @@ function HomeCtrl(Auth, $scope, $state){
     });
 
     $scope.$on('devise:logout', function(event, userObj){
-        // alert('So long, ' + userObj.user.name)
         $scope.currentUser = null
         sessionStorage.clear()
         $state.go('home.auth', {}, {reload: true})

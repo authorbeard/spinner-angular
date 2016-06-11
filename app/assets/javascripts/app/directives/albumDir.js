@@ -5,17 +5,19 @@ function Album(){
       },
       
       controller: function($scope){
-        // debugger;
+
           this.album=$scope.data.album
           this.spins=$scope.data.spins
           this.last=$scope.data.last_spun
           this.artist=this.album.artist
           this.cover=this.album.cover
-          // debugger;
+  
       },
       controllerAs: 'album',
+      
       link: function($scope, $elem, $attrs, $ctrl){
-          debugger;
+        // debugger;
+            console.log('album detail link')
       },
 
       templateUrl: 'app/views/albumTile.html',

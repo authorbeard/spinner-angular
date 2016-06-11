@@ -7,10 +7,19 @@ function Albums (){
       controller: function($scope){
           // debugger;
           this.albums = $scope.albums
+
+          this.showMore=function(){
+            
+          }
       },
       controllerAs: 'albums',
       link: function($scope, $elem, $attrs, $ctrl){
-        // debugger;
+          // $scope.$on('addAlbums', function(event){
+          //   // debugger;
+          //      console.log('adding!')
+          //      // $ctrl.showMore()
+          // })
+          
 
       },
 

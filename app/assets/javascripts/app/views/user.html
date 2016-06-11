@@ -11,7 +11,7 @@
 
     <p>If user set, there should be crap below</p>
     <div ng-if='currUser' class='user albums_container' id='user albums_container'>
-        <div albums data='user.currUser.albums'>  <!--// removed:  -->
+        <div albums data='user.displayAlbums' infinite-scroll='user.addMore()' infinite-scroll-distance='2'>  <!--// removed:  -->
             <!-- <album data='album'></album> -->
         </div>
 

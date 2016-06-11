@@ -4,7 +4,8 @@ angular
                     'Devise',
                     'ngCookies',
                     'ngMessages',
-                    'ngResource'
+                    'ngResource',
+                    'infinite-scroll'
                     ])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
         $httpProvider.defaults.withCredentials = true;
