@@ -27,7 +27,6 @@ function HomeCtrl(Auth, $scope, $state){
 
     $scope.$on('devise:login', function(event, userObj) {
         console.log('prev authenticated session')
-        // debugger;
         home.setUser(userObj)
     });
 
@@ -49,6 +48,11 @@ function HomeCtrl(Auth, $scope, $state){
     $scope.$on('error'), function(event, error){
         console.log('event: ' + event + " error: " + error)
         home.errors = error
+    }
+
+    $scope.$on('loginError'), function(event, error){
+        debugger;
+        console.log('Whoops. Check yer login credentials')
     }
 
 

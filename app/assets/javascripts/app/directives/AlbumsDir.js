@@ -5,22 +5,13 @@ function Albums (){
       },
       
       controller: function($scope){
-          // debugger;
           this.albums = $scope.albums
-
           this.showMore=function(){
-            
           }
       },
       controllerAs: 'albums',
       link: function($scope, $elem, $attrs, $ctrl){
-          // $scope.$on('addAlbums', function(event){
-          //   // debugger;
-          //      console.log('adding!')
-          //      // $ctrl.showMore()
-          // })
-          
-
+          // debugger;
       },
 
       templateUrl: 'app/views/albumFull.html',

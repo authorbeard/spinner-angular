@@ -16,6 +16,7 @@ function SessionCtrl(Auth, $scope, $state){
             Auth.register(cred, config).then(function(resp){
                 $state.go('home.user', {id: resp.user.id})
             }, function(error){
+                alert('Are you sure you have not signed in before?')
                 $scope.$emit('loginError', error.data.error)
             })
         }else{

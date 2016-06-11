@@ -21,19 +21,18 @@ function UserCtrl($scope){
           // debugger;
           ctrl.selection += 10
           ctrl.getDispAlbums()
-          $scope.$broadcast('addAlbums', event)
+          $scope.$emit('addAlbums', event)
           // var nextSet = ctrl.selection
 
           // ctrl.displayAlbums.push()
     }
 
-
-    $scope.$watch(function(){
-      return ctrl.displayAlbums
-      debugger;
-    }, function(event){
-      
+    $scope.$on('albSpin', function(event, alb){
+      ctrl.currUser.albums[alb.id - 1].spins ++
     })
+
+
+
 
     ctrl.getDispAlbums()
 

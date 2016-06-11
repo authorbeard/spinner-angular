@@ -1,16 +1,9 @@
-
-    <p>User.html</p>
-    <div id="filter_bar">
-<!--         <tabs active='0'>
-            <tab></tab>
-            <tab></tab>
-            <tab></tab>
-
-        </tabs> -->
-    </div>
-
     <p>If user set, there should be crap below</p>
+    <albums-filter>filter!</albums-filter>
     <div ng-if='currUser' class='user albums_container' id='user albums_container'>
+
+    <div ng-bind="user.spins"></div>
+
         <div albums data='user.displayAlbums' infinite-scroll='user.addMore()' infinite-scroll-distance='2'>  <!--// removed:  -->
             <!-- <album data='album'></album> -->
         </div>
@@ -21,5 +14,5 @@
     </div>
 
 
-    <!-- {{ user.currUser }} -->
+
     
