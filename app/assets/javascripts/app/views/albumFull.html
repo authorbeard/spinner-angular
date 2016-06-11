@@ -1,4 +1,7 @@
-<div ng-repeat='album in $ctrl.albums | limitTo: 3'>
-  {{ album }}
+<p>albumsFull.html</p>
+
+<div ng-repeat='album in albums | limitTo: 3'>
+  <!-- {{ album }} -->
+  <album data='album'>albumdirective</album>
 
 </div>

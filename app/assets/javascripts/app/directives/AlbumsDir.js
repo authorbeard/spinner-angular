@@ -3,15 +3,18 @@ function Albums (){
       scope: {
           albums: "=data"
       },
-      template: 'app/views/albumFull.html',
+      
       controller: function($scope){
-          debugger;
+          // debugger;
           this.albums = $scope.albums
       },
       controllerAs: 'albums',
       link: function($scope, $elem, $attrs, $ctrl){
-        debugger;
-      }
+        // debugger;
+
+      },
+
+      templateUrl: 'app/views/albumFull.html',
 
 
   }
