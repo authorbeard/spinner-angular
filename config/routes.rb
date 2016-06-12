@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :songs
 
-    resources :user_albums
+    resources :user_albums, only: [:index, :show, :create, :update, :destroy]
 
 
     

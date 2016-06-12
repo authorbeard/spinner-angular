@@ -1,19 +1,13 @@
-function UserCtrl($scope){
+function UserCtrl($scope, userAlbums){
     var ctrl = this
-    // console.log('userctrl sez: ' + sessionStorage['currUser'])
     
-    var userData = JSON.parse(sessionStorage['currUser'])
-    ctrl.currUser = {
-          userId: userData.id, 
-          name: userData.name,
-          email: userData.email,
-          albums: userData.user_albums
-    }
+    ctrl.currUser = $scope.$parent.currUser
+    ctrl.userAlbums = userAlbums
 
     ctrl.selection = 10
 
     ctrl.getDispAlbums = function(){
-        ctrl.displayAlbums = ctrl.currUser.albums.slice(0, ctrl.selection)
+        ctrl.displayAlbums = ctrl.currUser.user_albums.slice(0, ctrl.selection)
       }
     
 
@@ -29,8 +23,26 @@ function UserCtrl($scope){
 
     $scope.$on('albSpin', function(event, alb){
       // ctrl.currUser.albums[alb.id - 1].spins ++
+      // event.currentScope.$parent.currUser.user_albums
+      // console.log(ctrl.currUser.user_albums)
+      for (i in ctrl.displayAlbums){
+        // debugger 
+          var dAlb=ctrl.displayAlbums[i]
+          // debugger;
+          if (dAlb.album_id === alb.album_id){
+            debugger;
+                dAlb.spins ++
+          }
+      }
       debugger;
     })
+
+    // $scope.$watch(function(){
+    //     return ctrl.currUser.user_albums
+    //   debugger;
+    // }, function(ov, nv){
+    //   debugger;
+    // }, true)
 
 
 

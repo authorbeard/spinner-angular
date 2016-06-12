@@ -38,12 +38,13 @@ angular
                 url: 'user/:id',
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
-                // resolve: {
-                //       // THIS IS WHERE I'LL SEND THE SESSION INFO TO BACKEND SERVICE TO GET ALBUMS
-                //       user: function()
-
-                //       }
-                // },
+                resolve: {
+                      // THIS IS WHERE I'LL SEND THE SESSION INFO TO BACKEND SERVICE TO GET ALBUMS
+                      userAlbums: function($stateParams, userAlbumFactory){
+                        debugger;
+                        return userAlbumFactory.show($stateParams.id)
+                      }
+                },
                 onEnter: function($state){
                     //THIS NEEDS TO EMIT AN ALERT TO BE PICKED UP BY A DIRECTIVE THAT
                     //WILL RENDER THE LOGIN PAGE/TEMPLATE/DIALOG

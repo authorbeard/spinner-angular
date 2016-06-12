@@ -6,12 +6,16 @@ before_action :authenticate_user!, except: [:index]
     end
 
     def new
+      byebug
     end
 
     def create
     end
 
     def show
+      byebug
+        user_albums = UserAlbum.where(user_id: current_user.id)
+        render json: user_albums
     end
 
     def edit
@@ -26,6 +30,7 @@ before_action :authenticate_user!, except: [:index]
     end
 
     def delete
+      byebug
     end
 
 

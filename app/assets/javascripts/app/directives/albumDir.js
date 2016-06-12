@@ -12,19 +12,20 @@ function Album(userAlbumFactory, albumFactory){
           this.artist=this.album.artist
           this.cover=this.album.cover
 
-          this.spin=function(){
-              this.spins ++
-          }
+          // this.spin=function(){
+          //     this.spins ++
+          // }
   
       },
       controllerAs: 'album',
       
       link: function($scope, $elem, $attrs, $ctrl){
             $elem.on('click', function(){
-                $ctrl.spin()
+                // $ctrl.spin()
                 console.log('update the album on the backend here')
                 userAlbumFactory.update($ctrl.album, function(resp){
-                    // debugger;
+                    debugger;
+                    $scope.$emit('albSpin', resp.user_album)
                 })
             })
       },
