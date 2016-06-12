@@ -39,10 +39,8 @@ angular
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
                 resolve: {
-                      // THIS IS WHERE I'LL SEND THE SESSION INFO TO BACKEND SERVICE TO GET ALBUMS
                       userAlbums: function($stateParams, userAlbumFactory){
-                        debugger;
-                        return userAlbumFactory.show($stateParams.id)
+                        return userAlbumFactory.show({album_id: $stateParams.id}).$promise
                       }
                 },
                 onEnter: function($state){

@@ -1,4 +1,3 @@
-<p>albumsFull.html</p>
-    <div ng-repeat='album in albums'>
-      <album data='album'>albumdirective</album>
-    </div>
+<div ng-repeat="album in albums | filter:$ctrl.search">
+  <album data='album'></album>
+</div>

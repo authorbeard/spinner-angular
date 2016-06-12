@@ -1,7 +1,7 @@
 <!-- <p>albumsTile</p> -->
 <div class="album album_details">
-    <span class="album_details artist" id="{{album.artist.id}}">Artist: {{album.artist.name}}</span>
-    <span class="album_details title" id="{{album.album.id}}">Title: {{album.album.title}}</span>
-    <span class="album_details spins" ng-show="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}}  Last Spin: {{album.last | date:'medium'}}</span>
+    <span class="album_details artist" data-artid="{{album.artist.id}}">Artist: {{album.artist.name}}</span>
+    <span class="album_details title" id="{{album.albDetails.id}}">Title: {{album.albDetails.title}}</span>
+    <span class="album_details spins" ng-show="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}}  Last Spin: {{album.last | date:'short'}}</span>
     <span class="album_details cover"><img ng-src="assets/{{album.cover}}" width="400" height="300"></span>
 </div>

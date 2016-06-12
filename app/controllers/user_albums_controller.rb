@@ -3,6 +3,10 @@ before_action :authenticate_user!, except: [:index]
 
 
     def index
+      if params[:id] = current_user.id
+          user_albums = UserAlbum
+          render json: user_albums
+        end
     end
 
     def new
@@ -13,7 +17,6 @@ before_action :authenticate_user!, except: [:index]
     end
 
     def show
-      byebug
         user_albums = UserAlbum.where(user_id: current_user.id)
         render json: user_albums
     end
@@ -23,10 +26,12 @@ before_action :authenticate_user!, except: [:index]
     end
 
     def update
-        album=UserAlbum.where(user_id: current_user.id).find_by(album_id: params[:id])
-        current_user.spin_it(album)
-        render json: album
-
+        if params[:id] = current_user.id
+        # byebug
+            album = Album.find(params[:user_album][:album_id])
+            current_user.spin_it(album)
+            render json: album
+        end
     end
 
     def delete

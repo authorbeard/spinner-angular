@@ -6,26 +6,29 @@ function Album(userAlbumFactory, albumFactory){
       
       controller: function($scope){
 
-          this.album=$scope.data.album
+          this.albDetails=$scope.data.album
           this.spins=$scope.data.spins
           this.last=$scope.data.last_spun
-          this.artist=this.album.artist
-          this.cover=this.album.cover
+          this.cover=$scope.data.album.cover
+          this.artist = {
+                    id: $scope.data.album.artist.id,
+                    name: $scope.data.album.artist.name 
+                    }
+          
 
-          // this.spin=function(){
-          //     this.spins ++
-          // }
+          this.spin=function(uAlb){
+              this.spins ++
+              this.last=Date.now()
+          }
   
       },
       controllerAs: 'album',
       
       link: function($scope, $elem, $attrs, $ctrl){
             $elem.on('click', function(){
-                // $ctrl.spin()
                 console.log('update the album on the backend here')
-                userAlbumFactory.update($ctrl.album, function(resp){
-                    debugger;
-                    $scope.$emit('albSpin', resp.user_album)
+                userAlbumFactory.update({album_id: $ctrl.albDetails.id}, function(resp){
+                    $ctrl.spin(resp.album)    
                 })
             })
       },
