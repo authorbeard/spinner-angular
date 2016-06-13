@@ -24,7 +24,7 @@ angular
                 url: 'auth', 
                 templateUrl: 'app/views/auth.html',
                 controller: 'SessionCtrl as session',
-                onEnter: function(){
+                onEnter: function($state){
                         if (sessionStorage['currUser']){
                             debugger;
                             console.log('redirect from auth')
@@ -38,22 +38,45 @@ angular
                 url: 'user/:id',
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
+                onEnter: function($state){
+                    console.log('top of user onEnter')
+                        if (!sessionStorage['currUser']){
+                            console.log('redirect from user onEnter')
+                            $state.go('home.auth', {}, {reload: true})
+                        }
+                },
                 resolve: {
-                      userAlbums: function($stateParams, userAlbumFactory){
-                        return userAlbumFactory.show({album_id: $stateParams.id}).$promise
+                         userAlbums: function($state, $stateParams, userAlbumFactory){
+                                if (sessionStorage['currUser']){
+                                console.log('session info, resolving ualbums')
+                                    return userAlbumFactory.show({album_id: $stateParams.id}).$promise
+                                }else{
+                                console.log('no session info, onEnter should redirect')
+                                }
+                            
                       }
                 },
-                onEnter: function($state){
-                    //THIS NEEDS TO EMIT AN ALERT TO BE PICKED UP BY A DIRECTIVE THAT
-                    //WILL RENDER THE LOGIN PAGE/TEMPLATE/DIALOG
-                        // debugger;
-                        // console.log('user onEnter sez: ' + sessionStorage['currUser'])
-                        if (!sessionStorage['currUser']){
-                            // debugger;
-                            $state.go('home.auth', {reload: true})
-                        }
-                }
 
+            })
+
+            .state('home.album', {
+                url: 'albums/:id',
+                templateUrl: 'app/views/albumDetail.html',
+                controller: 'AlbumCtrl as album',
+                // onEnter: function($state){
+                //     console.log('top of user onEnter')
+                //         if (!sessionStorage['currUser']){
+                //             console.log('redirect from user onEnter')
+                //             $state.go('home.auth', {}, {reload: true})
+                //         }
+                // },
+                resolve: {
+                        showAlbum: function($state, $stateParams, AlbumFactory){
+                            console.log(album show resolve)
+                            debugger;
+                            // return AlbumFactory.get({id: $stateParams.id}).$promise
+                        }
+                }                
             })
 
         $urlRouterProvider.otherwise('auth')

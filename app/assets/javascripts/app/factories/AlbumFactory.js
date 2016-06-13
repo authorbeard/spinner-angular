@@ -1,5 +1,5 @@
 function AlbumFactory($resource) {
-    console.log('spinnerApi')
+    console.log('Albumfactory')
 
     var album = $resource('/albums/:id', {id: '@id'}, {
           show: { method: 'GET',

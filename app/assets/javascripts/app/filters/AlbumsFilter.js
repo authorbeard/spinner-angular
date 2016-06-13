@@ -1,10 +1,5 @@
 function AlbumsFilter(){
-    return function(collection, searchTerm){
-        debugger;
-        
-
-
-    }
+    return "whut"
 
 
 }

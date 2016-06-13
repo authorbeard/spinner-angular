@@ -7,12 +7,15 @@ function HomeCtrl(Auth, $scope, $state){
     home.currUser = function(){
         if (sessionStorage['currUser']){
             $scope.currUser = JSON.parse(sessionStorage['currUser'])
+            // debugger;
         }else{
             $scope.currUser = null
         }
     }
 
     home.currUser()
+
+    
 
 
     home.setUser = function(userObj){

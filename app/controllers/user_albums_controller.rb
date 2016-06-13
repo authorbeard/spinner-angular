@@ -27,7 +27,6 @@ before_action :authenticate_user!, except: [:index]
 
     def update
         if params[:id] = current_user.id
-        # byebug
             album = Album.find(params[:user_album][:album_id])
             current_user.spin_it(album)
             render json: album

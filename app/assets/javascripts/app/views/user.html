@@ -1,8 +1,6 @@
-    <p>If user set, there should be crap below</p>
-    
-    <dir albumsFilter></dir>
-
     <div ng-if='currUser' class='user albums_container' id='user albums_container'>
+
+        <alb-filter-bar data="user.userAlbums"></alb-filter-bar>
 
         <div albums data='user.displayAlbums' infinite-scroll='user.addMore()' infinite-scroll-distance='2'>  <!--// removed:  -->
             <!-- <album data='album'></album> -->

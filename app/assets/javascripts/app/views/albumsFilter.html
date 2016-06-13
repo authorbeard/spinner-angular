@@ -1,15 +1,15 @@
-<p>albums filter.html</p>
-
-<div id="albumfilter" class='filter_bar' >
+<div id="albumfilter" class='filter_bar'>
   <p>
-    <input type="text" ng-model="$ctrl.search" placeholder='Search Your Albums'>
+    <input type="text" ng-model="$ctrl.search" ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}" placeholder='Search Your Albums'></input>
   </p>
 
-  <button ng-click="">Dead button!</button>
+  <!-- <button ng-click="">Dead button!</button> -->
 </div>
 
-<div >
-  <ul ng-repeat='album in albums.albums | albumsFilter:$ctrl.search '>
-    <li class="search_results">Artist: {{ album.album.artist.name }} | Album: {{album.album.title}} | Last Listen {{ Album}}<li>
+<div ng-show="$ctrl.search">
+  <p>Search results: </p>
+  <ul ng-repeat='album in $ctrl.albums | filter:$ctrl.search '>
+    
+    <li><a href="" ui-sref="home.album({id: album.album.id})" class="search_results">Artist: {{ album.album.artist.name }} | Album: {{album.album.title}} | Last Listen: {{ album.last_spun | date: 'short' }} | Spins: {{album.spins}} </li>
   </ul>
 </div>

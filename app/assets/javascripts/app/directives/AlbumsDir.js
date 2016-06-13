@@ -14,7 +14,7 @@ function Albums (){
           // debugger;
       },
 
-      templateUrl: 'app/views/albumFull.html',
+      templateUrl: 'app/views/albumsFull.html',
 
 
   }
