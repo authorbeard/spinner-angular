@@ -5,6 +5,10 @@
 
   after_filter :set_csrf_cookie_for_ng
 
+  config.to_prepare do
+      DeviseController.respond_to :html, :json
+  end
+
   def angular
       render "layouts/angular"
   end

@@ -62,18 +62,10 @@ angular
                 url: 'albums/:id',
                 templateUrl: 'app/views/albumDetail.html',
                 controller: 'AlbumCtrl as album',
-                // onEnter: function($state){
-                //     console.log('top of user onEnter')
-                //         if (!sessionStorage['currUser']){
-                //             console.log('redirect from user onEnter')
-                //             $state.go('home.auth', {}, {reload: true})
-                //         }
-                // },
                 resolve: {
                         showAlbum: function($state, $stateParams, albumFactory){
                             console.log('album show resolve')
-                            debugger;
-                            return AlbumFactory.show({id: $stateParams.id}).$promise
+                            return albumFactory.show({id: $stateParams.id}).$promise
                         }
                 },                
             })

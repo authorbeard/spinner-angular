@@ -2,14 +2,14 @@ class AlbumsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_album, except: [:index, :new, :create]
 
+  respond_to :json
+
   def index
     @albums||=Album.order(:artist_id)
   end
 
   def show
-    respond_to do |format|
-      format.json { render json: @album}
-    end
+    render json: @album
   end
 
   def new
