@@ -26,7 +26,6 @@ angular
                 controller: 'SessionCtrl as session',
                 onEnter: function($state){
                         if (sessionStorage['currUser']){
-                            debugger;
                             console.log('redirect from auth')
                             var user = JSON.parse(sessionStorage['currUser'])
                             $state.go('home.user', {id: user.id})
@@ -71,12 +70,12 @@ angular
                 //         }
                 // },
                 resolve: {
-                        showAlbum: function($state, $stateParams, AlbumFactory){
-                            console.log(album show resolve)
+                        showAlbum: function($state, $stateParams, albumFactory){
+                            console.log('album show resolve')
                             debugger;
-                            // return AlbumFactory.get({id: $stateParams.id}).$promise
+                            return AlbumFactory.show({id: $stateParams.id}).$promise
                         }
-                }                
+                },                
             })
 
         $urlRouterProvider.otherwise('auth')

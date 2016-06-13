@@ -4,7 +4,7 @@
 <div class= 'user_nav' id='user-nav'>
     <div  ng-show="currUser">
         <div ng-show="currUser.name ">
-            <h3>Hi {{ currUser.name }}</h3>
+            <h3><a href="" ui-sref="home.user({id: currUser.id})">Hi {{ currUser.name }}</a></h3>
             <p>Collection size: {{ currUser.user_albums.length}} </p>
             <p>Edit my profile</p>
             <p>Edit my collection</p>

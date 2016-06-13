@@ -3,7 +3,7 @@ function AlbumFactory($resource) {
 
     var album = $resource('/albums/:id', {id: '@id'}, {
           show: { method: 'GET',
-                   // isArray: true,
+                   isArray: true,
                    transformResponse: function(data, header){
                         console.log(JSON.parse(data))
                         return JSON.parse(data)
