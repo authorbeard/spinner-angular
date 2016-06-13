@@ -1,2 +1,13 @@
-<h1>Album Detail</h1>
-{{ album.showAlbum }}
+<p>Album Detail</p>
+
+{{ album }}
+
+<h1>{{album.album.title}}</h1>
+<h2>by {{album.album.artist.name}}</h2>
+<img ng-src="assets/{{album.album.cover}}">
+
+
+ <!-- <album data="album.album"></album> -->
+
+
+

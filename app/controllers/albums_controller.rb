@@ -9,7 +9,13 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    render json: @album
+    if current_user.albums.include?(@album)
+    # byebug
+        user_album = UserAlbum.where({album_id: params[:id], user_id: current_user.id})
+        render json: user_album
+    else
+        render json: @album
+    end
   end
 
   def new
