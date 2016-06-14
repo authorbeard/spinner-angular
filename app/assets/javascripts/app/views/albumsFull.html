@@ -1,5 +1,4 @@
-<!-- <alb-filter-bar data="albums"></alb-filter-bar> -->
 
-<div ng-repeat="album in albums | filter:$ctrl.search">
+<div ng-repeat="album in albums | filter:$ctrl.search | orderBy:'-spins'">
   <album data='album'></album>
 </div>

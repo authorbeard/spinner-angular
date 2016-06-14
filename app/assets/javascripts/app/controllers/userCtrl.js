@@ -18,6 +18,7 @@ function UserCtrl($scope, userAlbums){
 
     ctrl.getDispAlbums()
 
+
 }
 
 angular 

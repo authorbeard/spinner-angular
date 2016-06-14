@@ -5,7 +5,7 @@ function Album(userAlbumFactory, albumFactory){
       },
       
       controller: function($scope){
-// debugger;
+
           this.albDetails=$scope.data.album
           this.spins=$scope.data.spins
           this.last=$scope.data.last_spun

@@ -11,7 +11,7 @@ function Albums (){
       },
       controllerAs: 'albums',
       link: function($scope, $elem, $attrs, $ctrl){
-          // debugger;
+      
       },
 
       templateUrl: 'app/views/albumsFull.html',

@@ -1,9 +1,11 @@
-function AlbumsFilter(){
+function NeverSpun(){
     return "whut"
+
+    return function(albums)
 
 
 }
 
 angular 
     .module('app')
-    .filter('albumsFilter', AlbumsFilter)
+    .filter('neverSpun', NeverSpun)

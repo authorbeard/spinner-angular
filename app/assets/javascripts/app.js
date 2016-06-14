@@ -70,6 +70,19 @@ angular
                 },                
             })
 
+            .state('home.album.new', {
+                url: 'albums/:id/new',
+                templateUrl: 'app/views/albumNew.html',
+                controller: 'AlbumCtrl as album'
+
+            })
+
+            .state('home.album.edit',{
+                url: 'albums/:id/edit',
+                templateUrl: 'app/views/albumDetail.html',
+                controller: 'AlbumCtrl as album'
+            })
+
         $urlRouterProvider.otherwise('auth')
 
 

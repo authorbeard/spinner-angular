@@ -3,12 +3,14 @@
     <input type="text" ng-model="$ctrl.search" ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}" placeholder='Search Your Albums'></input>
   </p>
 
+
+
   <!-- <button ng-click="">Dead button!</button> -->
 </div>
 
 <div ng-show="$ctrl.search">
   <p>Search results: </p>
-  <ul ng-repeat='album in $ctrl.albums | filter:$ctrl.search '>
+  <ul ng-repeat='album in $ctrl.albums | filter:$ctrl.search | neverSpun:false | mostSpun:false'>
     
     <li><a href="" ui-sref="home.album({id: album.album.id})" class="search_results">Artist: {{ album.album.artist.name }} | Album: {{album.album.title}} | Last Listen: {{ album.last_spun | date: 'short' }} | Spins: {{album.spins}} </li>
   </ul>
