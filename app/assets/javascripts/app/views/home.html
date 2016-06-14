@@ -6,8 +6,10 @@
         <div ng-show="currUser.name ">
             <h3><a href="" ui-sref="home.user({id: currUser.id})">Hi {{ currUser.name }}</a></h3>
             <p>Collection size: {{ currUser.user_albums.length}} </p>
+            <a href="" ui-sref="home.newalbum">Add a New Album</a>
             <p>Edit my profile</p>
             <p>Edit my collection</p>
+
         </div>
 
         <div ng-show="!currUser.name ">

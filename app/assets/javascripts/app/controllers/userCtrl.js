@@ -4,7 +4,6 @@ function UserCtrl($scope, userAlbums, $filter){
     ctrl.currUser = $scope.$parent.currUser
     ctrl.userAlbums = userAlbums
     ctrl.filterAlbums = $filter('orderBy')(ctrl.userAlbums, 'album.artist.name')
-    console.log(ctrl.userAlbums)
 
     ctrl.selection = 10
 

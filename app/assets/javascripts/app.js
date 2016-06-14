@@ -58,6 +58,13 @@ angular
 
             })
 
+            .state('home.newalbum', {
+                url: 'albums/new',
+                templateUrl: 'app/views/albumNew.html',
+                controller: 'NewAlbumCtrl as new'
+
+            })
+
             .state('home.album', {
                 url: 'albums/:id',
                 templateUrl: 'app/views/albumDetail.html',
@@ -70,12 +77,6 @@ angular
                 },                
             })
 
-            .state('home.album.new', {
-                url: 'albums/:id/new',
-                templateUrl: 'app/views/albumNew.html',
-                controller: 'AlbumCtrl as album'
-
-            })
 
             .state('home.album.edit',{
                 url: 'albums/:id/edit',
