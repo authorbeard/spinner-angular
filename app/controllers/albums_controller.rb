@@ -22,27 +22,35 @@ class AlbumsController < ApplicationController
   end
 
   def create
+       # byebug 
+       # album=Album.new(album_params)
 
-    respond_to do |format|
-      format.json {
-        
-          alb_params=JSON.parse(params["album"])
-          album=Album.find_by(title: alb_params["title"])
-          if album 
+       if Album.find_by(title: album_params['title'])
+        byebug
+          album=Album.update(album_params)
+          render json: album
+      else
+        # byebug
+          album=Album.create(album_params)
+          render json: album
+        # byebug
+
+      end
+          # album=Album.find_by(title: alb_params["title"])
+          # if album 
     
-            album.update(alb_params)
-          else
-            album=Album.create(alb_params)
-            album.artist=Artist.find_or_create_by(name: album.group)
-          end
+          #   album.update(alb_params)
+          # else
+          #   album=Album.create(alb_params)
+          #   album.artist=Artist.find_or_create_by(name: album.group)
+          # end
 
-          current_user.albums << album unless current_user.albums.include?(album)
-          album.save
-          @album=album
+          # current_user.albums << album unless current_user.albums.include?(album)
+          # album.save
+          # @album=album
   
-          render json: @album
-      } 
-    end
+          # render json: @album
+
   end
 
   def edit
@@ -84,7 +92,7 @@ class AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:title, :artist_name, :catalog_no, :group, :rel_date, :rel_id, :acquired, :search_q, :alb_url, :artist_id, :cover, :song_ids=>[], :artist_attributes=>[:name], :songs_attributes=>[:title, :song_ids=>[]])
+    params.require(:album).permit(:title, :catalog_no, :group, :rel_date, :rel_id, :acquired, :search_q, :alb_url, :artist_id, :cover, :song_ids=>[], :artist_attributes=>:name, :songs_attributes=>[:titles, :song_ids=>[]])
   end
 
 end

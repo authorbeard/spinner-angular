@@ -22,6 +22,8 @@ function AlbumCtrl($scope, showAlbum, userAlbumFactory){
       })
     }
 
+
+
 }
 
 angular 

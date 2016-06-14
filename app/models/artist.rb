@@ -3,6 +3,6 @@ class Artist < ActiveRecord::Base
   has_many :albums
   has_many :songs
 
-  serialize :namevariations, :urls
+  # serialize :namevariations, :urls
 
 end

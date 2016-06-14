@@ -1,31 +1,33 @@
 <h1>New Album</h1>
 
-<form name="new-album" class="album album_new">
+<form name="new-album" class="album album_new" ng-submit="new.create()">
 
 <label>Album Title</label>
     <input type = "title"
            required = 'true'
-           ng-model = 'album.title'  /><br>
+           ng-model = 'new.album.title'  /><br>
+    
     <div ng-messages="$form.title.errors">
         <div ng-message='required'>Title Required</div>
-
     </div>
 
 
     <label>Artist Name</label>
     <input type = "artist"
            required = 'true'
-           ng-model = 'album.artist'  /><br>
+           ng-model = 'new.album.artist'  /><br>
+    
     <div ng-messages="$form.artist.errors">
         <div ng-message='required'>Title Required</div>
-
     </div>
 
 
     <label>Album Songs</label>
+    <p>(separate with comma or return)</p>
     <textarea  type = "album songs"
                required = 'true'
-               ng-model = 'album.songs'  /><br>
+               ng-model = 'new.album.songs'  /><br>
+    
     <div ng-messages="$form.title.errors">
         <div ng-message='required'>Title Required</div>
     </div>

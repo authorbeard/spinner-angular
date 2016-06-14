@@ -16,24 +16,28 @@ class Album < ActiveRecord::Base
     attributes["name"].blank? || attributes["songs_ids"].all?{|i| i==""}
   end
   
-  def artist_attribues=(attributes)
-    self.artist=Artist.find_or_create_by(name: attributes["name"].strip.capitalize)
+  def artist_attributes=(attributes)
+# byebug
+    self.artist=Artist.find_or_initialize_by(name: attributes["name"].strip.capitalize)
+  byebug
   end
 
   def songs_attributes=(attributes)
+# byebug
     if !attributes.empty?
       # self.songs.delete_all
       if attributes["song_ids"]
-    byebug
+    # byebug
         songs=attributes["song_ids"].delete_if{|i| i==""}
         songs.each{|s| self.songs << Song.find_by(id: s)}
         self.save
       else
-    byebug
-        attributes["title"].split(",").each{|t|
+    # byebug
+        attributes["titles"].split(",").each{|t|
           t.strip.capitalize
-          self.songs.find_or_create_by(title: t, artist_id: self.artist.id) unless attributes["title"].empty?
+          self.songs.find_or_initialize_by(title: t, artist_id: self.artist.id) unless attributes["titles"].empty?
         }
+    byebug
       end      
     end
   end
