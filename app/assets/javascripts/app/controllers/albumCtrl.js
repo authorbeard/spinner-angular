@@ -1,24 +1,26 @@
-function AlbumCtrl($scope, showAlbum){
-debugger;
-    console.log(showAlbum)
-    console.log('album show ctrl')
-    // this.album=showAlbum.album
+function AlbumCtrl($scope, showAlbum, userAlbumFactory){
+    var ctrl=this
 
-    this.setAlbum=function(showAlbum) {
-    debugger;
+    console.log('album show ctrl')
+
+    var showAlbum = showAlbum
+    ctrl.setAlbum = function(showAlbum) {
         if (showAlbum.albums){
-            this.album=showAlbum.albums[0]
+            ctrl.data=showAlbum.albums[0]
+            console.log(ctrl.data)
         }else{
-            this.album=showAlbum.album
+            ctrl.data=showAlbum
         }
       }
 
-    this.setAlbum()
-    console.log(this.album)
+    ctrl.setAlbum(showAlbum)
 
-
-
-  
+    ctrl.spin = function(id){
+        userAlbumFactory.update({album_id: id}, function(resp){
+        ctrl.data.spins ++
+        ctrl.data.last=Date.now()
+      })
+    }
 
 }
 
