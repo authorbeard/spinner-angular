@@ -1,4 +1,7 @@
 
-<div ng-repeat="album in albums | filter:$ctrl.search | orderBy:'-spins'">
+<div ng-repeat="album in albums | filter:$ctrl.search ">
   <album data='album'></album>
 </div>
+
+
+<!-- // removed: | orderBy:'album.artist.name' -->

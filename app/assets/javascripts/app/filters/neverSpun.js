@@ -1,5 +1,6 @@
 function neverSpun(){
     return function(albums, never){
+      debugger;
         return albums.filter(function(album){
             return album.spins === 0
         })

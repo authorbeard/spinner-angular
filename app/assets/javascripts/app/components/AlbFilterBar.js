@@ -6,7 +6,12 @@ var AlbFilterBar = {
         },
     controller: function($scope){
             this.albums = this.data
+            this.filterSpins=function(filter){
+                var type = filter
+                $scope.$emit('spinFilter', filter)
+            }
         }
+    // controller: UserCtrl,
 
 }
 
