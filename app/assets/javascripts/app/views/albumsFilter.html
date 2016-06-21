@@ -4,8 +4,11 @@
   </p>
 
   <p>
-    <button ng-click="$ctrl.filterSpins('never')">Show me albums I've never spun</button>
-    <button ng-click="$ctrl.filterSpins('most')">Show me my favorite albums</button>
+    <button data-type="never">Show me albums I've never spun</button>
+    <button data-type="most">Show me my favorite albums</button>
+    <button data-type="alpha">Alpha by artist</button>
+    <button data-type="reset">Reset filters</button>
+    
 
   </p>
 
@@ -13,7 +16,7 @@
 
 <div ng-show="$ctrl.search">
   <p>Search results: </p>
-  <ul ng-repeat='album in $ctrl.data | filter:$ctrl.search '>
+  <ul ng-repeat='album in albFilter.albums | filter:$ctrl.search '>
     
     <li><a href="" ui-sref="home.album({id: album.album.id})" class="search_results">Artist: {{ album.album.artist.name }} | Album: {{album.album.title}} <span ng-if="album.spins">| Last Listen: {{ album.last_spun | date: 'short' }} | Spins: {{album.spins}}</span> </li>
   </ul>

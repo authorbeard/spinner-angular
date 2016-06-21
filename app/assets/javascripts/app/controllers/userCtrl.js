@@ -1,56 +1,59 @@
 function UserCtrl($scope, userAlbums, $filter){
     var ctrl = this
-    
-    ctrl.currUser = $scope.$parent.currUser
-    ctrl.userAlbums = userAlbums
-    ctrl.filterAlbums = $filter('orderBy')(ctrl.userAlbums, 'album.artist.name')
 
-    ctrl.selection = 10
+    ctrl.currUser = $scope.$parent.currUser
+    $scope.userAlbums = userAlbums
+
+    ctrl.selection = 20
 
     ctrl.getDispAlbums=function(){
-        ctrl.displayAlbums = ctrl.filterAlbums.slice(0, ctrl.selection)
-    }
-
-    
-    ctrl.addMore=function(){
-          ctrl.selection += 10
-          ctrl.getDispAlbums()
-          $scope.$emit('addAlbums', event)
+      debugger;
+        $scope.displayAlbums = $scope.userAlbums.slice(0, ctrl.selection)
     }
 
     ctrl.getDispAlbums()
 
 
-    $scope.$on('spinFilter', function(event, type){
-        // event.preventDefault()
-        ctrl.spinOpts(type)
+    ctrl.addMore=function(){
+          ctrl.selection += 20
+          ctrl.getDispAlbums()
+    }
 
+
+    $scope.$on('spinFilter', function(event, type){
+      console.log('message received')
+        ctrl.spinOpts(type)
     })
 
     ctrl.spinOpts=function(sortType){
-
+// debugger;
+console.log(sortType)
         if (sortType === 'never'){
-            ctrl.displayAlbums=ctrl.userAlbums.filter(function(album){
+            $scope.displayAlbums=userAlbums.filter(function(album){
                 return album.spins === 0
              })
+            // $scope.$apply()
          }else if (sortType === 'most'){
-          // debugger;
-            var filterAlbs=ctrl.userAlbums.filter(function(album){
+    // debugger;
+          console.log('elseif')
+            var spunAlbs=userAlbums.filter(function(album){
                 return album.spins !== 0
               })
-          // debugger;
-            ctrl.displayAlbums=filterAlbs.sort(function(a, b){
-               // debugger;
-                if (a.spins < b.spins){
-                    return 1
-                }
-                if (a.spins > b.spins){
-                    return -1
-                }
-            })
-         }else{
-            // ctrl.displayAlbums=$filter('orderBy')(userAlbums, 'album.artist.name')
+            $scope.property="spins"
+            $scope.reverse=true
+            $scope.displayAlbums=$filter('orderBy')(spunAlbs, $scope.property, $scope.reverse)
+// debugger;
+            // $scope.$apply()
+         }else if (sortType === 'alpha'){
+        // debugger;
+            // $scope.property="album.artist.name"
+            $scope.displayAlbums=$filter('orderBy')(userAlbums, 'album.artist.name')
+            // $scope.$apply()
+         }else if (sortType === 'reset'){
+            ctrl.getDispAlbums()
          }
+        $scope.$apply()
+// debugger;
        }
 
 

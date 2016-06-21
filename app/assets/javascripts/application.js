@@ -1,5 +1,5 @@
 
-//= require jquery
+
 //= require angular
 //= require angular-messages
 //= require angular-ui-router

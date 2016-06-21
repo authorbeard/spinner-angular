@@ -13,7 +13,9 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :songs, reject_if: :empty?
 
   def empty?
+  byebug
     attributes["name"].blank? || attributes["songs_ids"].all?{|i| i==""}
+    attributes["song_ids"].compact.any?
   end
   
   def artist_attributes=(attributes)

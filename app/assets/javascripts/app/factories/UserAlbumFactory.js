@@ -1,7 +1,12 @@
 function UserAlbumFactory($resource) {
     console.log('userAlbumFactory')
 
-    var useralbum = $resource('/user_albums/:album_id', {album_id: '@album_id'}, {
+    var useralbum = $resource('/user_albums/:id', {id: '@id'}, {
+          index: { method: 'GET',
+                   isArray: true,
+                   transformResponse: function(data, header){
+                        return JSON.parse(data).user_albums
+                  }},
           show: { method: 'GET',
                    isArray: true,
                    transformResponse: function(data, header){

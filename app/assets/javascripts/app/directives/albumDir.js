@@ -27,7 +27,7 @@ function Album(userAlbumFactory, albumFactory){
       link: function($scope, $elem, $attrs, $ctrl){
             $elem.on('click', function(){
                 console.log('update the album on the backend here')
-                userAlbumFactory.update({album_id: $ctrl.albDetails.id}, function(resp){
+                userAlbumFactory.update({id: $ctrl.albDetails.id}, function(resp){
                     $ctrl.spin(resp.album)    
                 })
             })

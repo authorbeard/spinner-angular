@@ -5,7 +5,6 @@ angular
                     'ngCookies',
                     'ngMessages',
                     'ngResource',
-                    'infinite-scroll'
                     ])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
         $httpProvider.defaults.withCredentials = true;
@@ -48,7 +47,7 @@ angular
                          userAlbums: function($state, $stateParams, userAlbumFactory){
                                 if (sessionStorage['currUser']){
                                 console.log('session info, resolving ualbums')
-                                    return userAlbumFactory.show({album_id: $stateParams.id}).$promise
+                                    return userAlbumFactory.index({id: $stateParams.id}).$promise
                                 }else{
                                 console.log('no session info, onEnter should redirect')
                                 }

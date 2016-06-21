@@ -1,5 +1,5 @@
 function Library($resource) {
-    console.log('spinnerApi')
+    console.log('library factory')
 
     var album = $resource('/albums/', {
           query: { method: 'GET',
