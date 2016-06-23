@@ -5,6 +5,7 @@ angular
                     'ngCookies',
                     'ngMessages',
                     'ngResource',
+                    'ui.bootstrap'
                     ])
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
         $httpProvider.defaults.withCredentials = true;

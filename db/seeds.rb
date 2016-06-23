@@ -11,7 +11,7 @@ end
 
 ### Create Albums ###
 require 'csv'
-@lib=CSV.read("devjunk/authorbeard.csv", {headers: true, header_converters: :symbol})
+@lib=CSV.read("db/authorbeard.csv", {headers: true, header_converters: :symbol})
 
   @lib.each {|r|
     album=Album.find_or_create_by(title: r[:title])
@@ -27,14 +27,22 @@ require 'csv'
 
 me=User.create(email: "admin@email.com", password: "deeznuts", name: "coderbeard")
 
-10.times{FactoryGirl.create(:user)}
+5.times{FactoryGirl.create(:user)}
 
 
 ### Give Users some albums ###
 User.all.each{|u|
-  u.albums << Album.where(id: [(u.id)..(u.id+50)])
+  u.albums << Album.where(id: [(u.id+5)..(u.id+50)])
   u.save
 
+}
+
+### Set up some spins ###
+
+User.all.each{|u|
+    u.user_albums.each{|ua|
+        ua.update(spins: (ua.id + u.id))
+    }
 }
 
 

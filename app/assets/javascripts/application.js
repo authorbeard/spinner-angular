@@ -1,6 +1,6 @@
 
-//= require bootstrap
 //= require angular
+//= require angular-bootstrap
 //= require angular-messages
 //= require angular-ui-router
 //= require angular-rails-templates
