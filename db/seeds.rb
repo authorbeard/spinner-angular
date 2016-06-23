@@ -25,7 +25,7 @@ require 'csv'
 
 ### Create Users ###
 
-me=User.create(email: "admin@email.com", password: "deeznuts", name: "coderbeard")
+me=User.create(email: "admin@email.com", password: "password", name: "coderbeard")
 
 5.times{FactoryGirl.create(:user)}
 
