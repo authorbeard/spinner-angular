@@ -45,6 +45,12 @@ User.all.each{|u|
     }
 }
 
+### Add in some unplayed albums ###
+User.all.each{|u|
+    u.albums << Album.where(id: [(u.id)..(u.id+4)])
+    u.save
+}
+
 
 
 
