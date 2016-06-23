@@ -6,7 +6,7 @@ The present version is based solely on a physical vinyl collection, with data st
 
 1. fork & clone this directory. 
 2. rake db:migrate, then rake db:seed
-..* This will set up your tables, add Devise to users, and set a default album image. 
+  * This will set up your tables, add Devise to users, and set a default album image. 
 ..* This will also create six test users.
 3. Log in: 
 ..* For the main account, you can use admin@email.com/password
