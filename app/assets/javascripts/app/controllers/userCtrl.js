@@ -7,7 +7,6 @@ function UserCtrl($scope, userAlbums, $filter){
     ctrl.selection = 20
 
     ctrl.getDispAlbums=function(){
-      debugger;
         $scope.displayAlbums = $scope.userAlbums.slice(0, ctrl.selection)
     }
 
@@ -26,15 +25,14 @@ function UserCtrl($scope, userAlbums, $filter){
     })
 
     ctrl.spinOpts=function(sortType){
-// debugger;
+
 console.log(sortType)
         if (sortType === 'never'){
             $scope.displayAlbums=userAlbums.filter(function(album){
                 return album.spins === 0
              })
-            // $scope.$apply()
          }else if (sortType === 'most'){
-    // debugger;
+
           console.log('elseif')
             var spunAlbs=userAlbums.filter(function(album){
                 return album.spins !== 0
@@ -42,18 +40,14 @@ console.log(sortType)
             $scope.property="spins"
             $scope.reverse=true
             $scope.displayAlbums=$filter('orderBy')(spunAlbs, $scope.property, $scope.reverse)
-// debugger;
-            // $scope.$apply()
+
          }else if (sortType === 'alpha'){
-        // debugger;
-            // $scope.property="album.artist.name"
             $scope.displayAlbums=$filter('orderBy')(userAlbums, 'album.artist.name')
-            // $scope.$apply()
          }else if (sortType === 'reset'){
             ctrl.getDispAlbums()
          }
         $scope.$apply()
-// debugger;
+
        }
 
 
