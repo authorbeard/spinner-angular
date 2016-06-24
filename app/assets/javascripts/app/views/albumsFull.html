@@ -1,7 +1,9 @@
 <!-- <div class="container-fluid user-albums"> -->
-<div id="container-fluid">
-  <div ng-repeat="album in albums | filter:$ctrl.search ">
-    <album data='album'></album>
-  </div>
+<div class="card-group">
+    <div class="card-columns">
+        <div ng-repeat="album in albums | filter:$ctrl.search ">
+          <album data='album'></album>
+        </div>
+    </div>
 </div>
 

@@ -1,0 +1,33 @@
+
+.user-nav {
+  background-color: #FF5733;
+/*  background-image: url(asset-path('original/background_nav.jpg'));
+  background-size: cover;*/
+}
+
+
+#user-albums-container {
+  background-color: #F2F4F4;
+  background-image: url(asset-path('original/background2.jpg'));
+  background-size: contain;
+}
+
+.alb-details {
+
+}
+
+.spins {
+  margin-top: 5px;
+  border-top-style: solid;
+  border-top-color: #FF5733;
+}
+
+.search-results {
+  background-color: #ECF0F1;
+  opacity: .9;
+}
+
+.search-results p {
+  color: #FF5733;
+}
+

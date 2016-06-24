@@ -1,7 +1,7 @@
 <span class="home-errors" ng-show="home.errors">{{home.errors}}</span>
 
-<nav>
-    <div class='user_nav' id='user-nav'>
+<nav role="navigation">
+    <div class='user-nav' id='user-nav'>
         <div  ng-show="currUser">
             <div ng-show="currUser.name ">
                 <h3><a href="" ui-sref="home.user({id: currUser.id})">Hi {{ currUser.name }}</a></h3>
