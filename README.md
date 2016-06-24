@@ -9,7 +9,7 @@ The present version is based solely on a physical vinyl collection, with data st
   * This will set up your tables, add Devise to users, and set a default album image. 
   * This will also create six test users.
 3. Log in: 
-  * For the main account, you can use admin@email.com/records
+  * The admin account credentials are contained in seeds.db. Admin isn't anything special at the moment. 
   * For test users, the password is please123 and the username is Test_user[INSERT NUMBER]@example.com
 
 
