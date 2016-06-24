@@ -6,7 +6,7 @@
                     <h6 class="card-subtitle text-muted" data-artid="{{album.artist.id}}"> {{album.artist.name}}</h6>
                 </div>
                 <div class="alb-details spins">
-                    <p class="card-text text-muted" ng-show="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}}  Last Spin: {{album.last | date:'short'}}</p>
+                    <p class="card-text text-muted" ng-show="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}} | Last Spin: {{album.last | date:'short'}}</p>
                 </div>
             </div>
         <img class="card-img-bottom" ng-src="assets/{{album.cover}}" alt="Card image">

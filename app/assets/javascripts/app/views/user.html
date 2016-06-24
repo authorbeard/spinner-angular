@@ -1,15 +1,17 @@
-    <div ng-if='currUser && userAlbums' id='user-albums-container'>
+<div ng-if='currUser && userAlbums' id='user-albums-container'>
 
         <alb-filter-dir data="userAlbums"></alb-filter-dir>
 
         <div albums data='displayAlbums'></div>
 
         <button ng-click="user.addMore()" id="show_more">Show me more!</button>
-    </div>
+</div>
 
-    <div ng-show='!userAlbums'>
-        <a href='' ui-sref='library'>Get some damn records</a>
-    <div>  
+<div ng-show='!userAlbums'>
+    <a href='' ui-sref='library'>Get some damn records</a>
+<div>  
+
+
 
 
 
