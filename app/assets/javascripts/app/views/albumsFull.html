@@ -1,7 +1,7 @@
-
-<div ng-repeat="album in albums | filter:$ctrl.search ">
-  <album data='album'></album>
+<!-- <div class="container-fluid user-albums"> -->
+<div id="container-fluid">
+  <div ng-repeat="album in albums | filter:$ctrl.search ">
+    <album data='album'></album>
+  </div>
 </div>
 
-
-<!-- // removed: | orderBy:'album.artist.name' -->

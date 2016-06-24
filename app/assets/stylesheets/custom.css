@@ -1,0 +1,12 @@
+body { 
+  background-image: url('images/original/background_img.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#user-albums-container {
+  background-color: #FF5733;
+
+}

@@ -1,25 +1,26 @@
 <span class="home-errors" ng-show="home.errors">{{home.errors}}</span>
 
+<nav>
+    <div class='user_nav' id='user-nav'>
+        <div  ng-show="currUser">
+            <div ng-show="currUser.name ">
+                <h3><a href="" ui-sref="home.user({id: currUser.id})">Hi {{ currUser.name }}</a></h3>
+                <p>Collection size: {{ currUser.user_albums.length}} </p>
+                <a href="" ui-sref="home.newalbum">Add a New Album</a>
+            </div>
 
-<div class= 'user_nav' id='user-nav'>
-    <div  ng-show="currUser">
-        <div ng-show="currUser.name ">
-            <h3><a href="" ui-sref="home.user({id: currUser.id})">Hi {{ currUser.name }}</a></h3>
-            <p>Collection size: {{ currUser.user_albums.length}} </p>
-            <a href="" ui-sref="home.newalbum">Add a New Album</a>
+            <div ng-show="!currUser.name ">
+                <label>Hey, you should choose a username</label>
+                    <p>edit user directive</p>
+            </div>
+            <button class="btn btn-primary" ng-click='home.logout()'>Log me out</span>
         </div>
-
-        <div ng-show="!currUser.name ">
-            <label>Hey, you should choose a username</label>
-                <p>edit user directive</p>
-        </div>
-        <button ng-click='home.logout()'>Log me out</span>
+    <!--     <div ng-show="!currUser">
+            <p>Heya! Sign up or Sign in: </p>
+            <login></login>
+        </div> -->
     </div>
-<!--     <div ng-show="!currUser">
-        <p>Heya! Sign up or Sign in: </p>
-        <login></login>
-    </div> -->
-</div>
+</nav>
 
 <ui-view></ui-view>
 
