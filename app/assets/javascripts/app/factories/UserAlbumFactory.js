@@ -1,7 +1,10 @@
 function UserAlbumFactory($resource) {
     console.log('userAlbumFactory')
 
-    var useralbum = $resource('/user_albums', {},  {
+    var provider = '/user_albums/:id'
+    var params = {id: '@id'}
+
+    var useralbum = $resource(provider, params,  {
           index: { method: 'GET',
                    isArray: true,
                    transformResponse: function(data, header){
@@ -14,7 +17,7 @@ function UserAlbumFactory($resource) {
                   }},
           update: { method: 'PATCH', 
                     transformResponse: function(data, header){
-                        // console.log(JSON.parse(data))
+                        console.log(JSON.parse(data))
                         return JSON.parse(data)
                   }},
           create: { method: 'POST', 

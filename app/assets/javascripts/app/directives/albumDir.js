@@ -5,25 +5,20 @@ function Album(userAlbumFactory, albumFactory){
       },
       
       controller: function($scope){
-// debugger;
           $scope.album = $scope.data
-
-
           this.spin=function(uAlb){
               this.spins ++
               this.last=Date.now()
-
           }
-  
       },
       controllerAs: 'alb',
-      
       link: function($scope, $elem, $attrs, $ctrl){
+            var album=$scope.album
             // debugger;
-            $elem.on('click', function($attrs){
+            $elem.on('click', function(){
                 debugger;              
                 console.log('update the album on the backend here')
-                userAlbumFactory.update({id: $ctrl.albDetails.id}, function(resp){
+                userAlbumFactory.update({album}, function(resp){
                   debugger;
                   // $ctrl.spin(resp.album)    
                   // $ctrl.albums // [{}. {}]
