@@ -3,8 +3,7 @@ class UserAlbumsController < ApplicationController
     respond_to :json
 
     def index
-        user_albums = UserAlbum.where(user_id: current_user.id)
-        render json: user_albums
+      render json: current_user.user_albums.includes(:album => [:artist, :songs])
     end
 
     def new
@@ -24,12 +23,8 @@ class UserAlbumsController < ApplicationController
     end
 
     def update
-    
-        if params[:id] = current_user.id
-            album = Album.find(params[:user_album][:id])
-            current_user.spin_it(album)
-            render json: album
-        end
+      byebug
+      ua = current_user.user_albums.find(params[:id]).increment(:spins, by=1).save
     end
 
     def delete

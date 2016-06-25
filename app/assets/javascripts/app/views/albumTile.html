@@ -1,13 +1,13 @@
 
-    <div class="card" data-albid="{{album.albDetails.id}}">
+    <div class="card" data-albid="{{album.album_id}}">
         <div class="card-block">
             <div class="alb-details">
-                <h4 class="card-title">{{album.albDetails.title}} </h4>
-                <h6 class="card-subtitle text-muted" data-artid="{{album.artist.id}}"> {{album.artist.name}}</h6>
+                <h4 class="card-title">{{album.album.title}} </h4>
+                <h6 class="card-subtitle text-muted" data-artid="{{album.artist.id}}"> {{album.album.artist.name}}</h6>
             </div>
             <div class="alb-details spins">
-                <p class="card-text text-muted" ng-show="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}} | Last Spin: {{album.last | date:'short'}}</p>
+                <p class="card-text text-muted" ng-show="album.spins" data-spins="{{alb.album.spins}}">Spin Count: {{album.spins}} | Last Spin: {{album.last | date:'short'}}</p>
             </div>
         </div>
-        <img class="card-img-bottom" ng-src="assets/{{album.cover}}" alt="Card image">
+        <img class="card-img-bottom" ng-src="assets/{{album.album.cover}}" alt="Card image">
     </div>

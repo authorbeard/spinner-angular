@@ -5,31 +5,36 @@ function Album(userAlbumFactory, albumFactory){
       },
       
       controller: function($scope){
+// debugger;
+          $scope.album = $scope.data
 
-          this.albDetails=$scope.data.album
-          this.spins=$scope.data.spins
-          this.last=$scope.data.last_spun
-          this.cover=$scope.data.album.cover
-          this.artist = {
-                    id: $scope.data.album.artist.id,
-                    name: $scope.data.album.artist.name 
-                    }
-          
 
           this.spin=function(uAlb){
               this.spins ++
               this.last=Date.now()
+
           }
   
       },
-      controllerAs: 'album',
+      controllerAs: 'alb',
       
       link: function($scope, $elem, $attrs, $ctrl){
-            $elem.on('click', function(){
+            // debugger;
+            $elem.on('click', function($attrs){
+                debugger;              
                 console.log('update the album on the backend here')
                 userAlbumFactory.update({id: $ctrl.albDetails.id}, function(resp){
-                    $ctrl.spin(resp.album)    
+                  debugger;
+                  // $ctrl.spin(resp.album)    
+                  // $ctrl.albums // [{}. {}]
+                  // $scope.albums // [{}. {THIS CURRENT ALBUM}]
+                  // // You need to find that object (the JS object of this album that is rednered through ng-repeat ctrl.albums)
+                  // and update that JS object with the resp.spon data.
+                  console.log(resp, this)
+                  // $braodcast("albumUpdate", resse)
                 })
+                // this.spins = resp.spins
+
             })
       },
 

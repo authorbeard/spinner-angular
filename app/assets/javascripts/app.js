@@ -49,6 +49,7 @@ angular
                                 if (sessionStorage['currUser']){
                                 console.log('session info, resolving ualbums')
                                     return userAlbumFactory.index({id: $stateParams.id}).$promise
+                                    debugger;
                                 }else{
                                 console.log('no session info, onEnter should redirect')
                                 }

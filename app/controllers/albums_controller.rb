@@ -24,10 +24,8 @@ class AlbumsController < ApplicationController
   def create
        # byebug 
        # album=Album.new(album_params)
-
-       if Album.find_by(title: album_params['title'])
-        byebug
-          album=Album.update(album_params)
+       if album = Album.find_by(title: album_params['title'])
+          album.update(album_params)
           render json: album
       else
         # byebug

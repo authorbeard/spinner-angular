@@ -10,19 +10,11 @@ class User < ActiveRecord::Base
   has_many :albums, through: :user_albums
 
 
-  def spins(album)
-    user_albums.where(album_id: album.id).sum(:spins)
-  end
-
-  def last_spin(album)
-    user_albums.where(album_id: album.id).try(:last_spun)
-  end
-
   def last_album
     Album.find(self.user_albums.order(last_spun: :desc).first.album_id)
   end
 
-  def spin_it(album)
+  def spin(album)
     user_albums.find_by(album_id: album.id).increment(:spins, by=1).save
   end
 
