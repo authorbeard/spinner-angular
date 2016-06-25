@@ -18,7 +18,7 @@ function Album(userAlbumFactory, albumFactory){
             $elem.on('click', function(){
                 debugger;              
                 console.log('update the album on the backend here')
-                userAlbumFactory.update({album}, function(resp){
+                userAlbumFactory.update({id: album.album_id, type: 'spin'}, function(resp){
                   debugger;
                   // $ctrl.spin(resp.album)    
                   // $ctrl.albums // [{}. {}]

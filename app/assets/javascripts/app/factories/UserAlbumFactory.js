@@ -15,7 +15,8 @@ function UserAlbumFactory($resource) {
                    transformResponse: function(data, header){
                         return JSON.parse(data).user_albums
                   }},
-          update: { method: 'PATCH', 
+          update: { "params": {'type': '@type'},
+                    method: 'PATCH', 
                     transformResponse: function(data, header){
                         console.log(JSON.parse(data))
                         return JSON.parse(data)
