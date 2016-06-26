@@ -57,10 +57,12 @@ albums {
 }
 
 .card {
-  height: 10rem;
+  height: 100%;
   border-radius: 0;
   padding-bottom: 100%;
   background-color: black;
+
+  display: flex;
 
   img {
     width: 100%;
@@ -71,7 +73,6 @@ albums {
 
   div .alb-details {
     display: inline-block;
-    vertical-align: text-top;
     width: 49%;
   }
 }
@@ -89,13 +90,20 @@ albums {
   opacity: 0;
   padding: .25rem;
 
-  h4: {
+  h4 {
     font-size: 1.35rem;
   }
 
-  h6: {
+  h6 {
     font-size: 1.15rem;
   }
+
+  button {
+  display: block;
+  margin-top: 5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
 }
 
 
@@ -118,9 +126,11 @@ albums {
   color: #FF5733;
 }
 
-/*button.albums-more {
-
-}*/
+button.albums-more {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /*SIGNIN FORM*/
 

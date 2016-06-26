@@ -2,10 +2,12 @@
 
     <input type="text" ng-model="$ctrl.search" ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}" placeholder='Search Your Albums'></input>
 
-    <button class="btn-secondary" data-type="never">Show me albums I've never spun</button>
-    <button class="btn-secondary" data-type="most">Show me my favorite albums</button>
-    <button class="btn-secondary" data-type="alpha">Alpha by artist</button>
-    <button class="btn-secondary" data-type="reset">Reset filters</button>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-secondary" data-type="never">Show me albums I've never spun</button>
+        <button type="button" class="btn btn-secondary" data-type="most">Show me my favorite albums</button>
+        <button type="button" class="btn btn-secondary" data-type="alpha">Alpha by artist</button>
+        <button type="button" class="btn btn-secondary" data-type="reset">Reset filters</button>
+    </div>
 
 
 </div>
