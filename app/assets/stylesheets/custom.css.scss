@@ -1,3 +1,7 @@
+body {
+  padding-top: 0px;
+}
+
 
 .user-nav {
   background-color: #FF5733;
@@ -19,6 +23,47 @@
 
 .alb-details {
 
+}*/
+albums {
+  .container-fluid {
+    margin-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .row {
+    margin-left: 1px;
+    margin-right: 1px;
+
+  }
+
+  .cols {
+    padding: 0px;
+    margin: 0px;
+  }
+
+/*  .card-deck {
+    width: 100%;
+  }*/
+}
+
+.card-group  {
+  /*width: 32%;*/
+  /*display: inline-block;*/
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-block {
+  padding: 10px;
+}
+
+/*.card-columns {
+  -webkit-column-count: 4;
+  column-count: 4;
+  -webkit-column-gap: 1px;
+  column-gap: 1px;
 }*/
 
 .spins {

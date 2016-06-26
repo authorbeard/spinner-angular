@@ -1,8 +1,7 @@
-<div ng-if='currUser && userAlbums' id='user-albums-container'>
-
+<div ng-if='currUser && userAlbums'>
         <alb-filter-dir data="userAlbums"></alb-filter-dir>
 
-        <div albums data='displayAlbums'></div>
+        <albums data='displayAlbums'></albums>
 
         <button ng-click="user.addMore()" id="show_more">Show me more!</button>
 </div>

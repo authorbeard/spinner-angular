@@ -14,22 +14,31 @@ class UserAlbumsController < ApplicationController
     end
 
     def show
-        user_albums = UserAlbum.where(user_id: current_user.id)
-        render json: user_albums
+      user_albums = UserAlbum.where(user_id: current_user.id)
+      render json: user_albums
     end
+    
 
     def edit
       
     end
 
     def update
-      byebug
-      ua = current_user.user_albums.find(params[:id]).increment(:spins, by=1).save
+      # byebug
+      ua = current_user.user_albums.find(params[:id])
+      if ua.update(ua_params)
+        render json: ua
+      end
     end
 
     def delete
     
     end
+
+    private
+      def ua_params
+        params.require(:user_album).permit(:id, :spins)
+      end
 
 
 

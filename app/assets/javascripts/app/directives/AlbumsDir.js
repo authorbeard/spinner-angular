@@ -10,7 +10,7 @@ function Albums (){
       controllerAs: 'albums',
       link: function($scope, $elem, $attrs, $ctrl){
           // debugger;
-          // $scope.$on('spinFilter', function(event){
+          // $scope.$on('spin', function(event){
           //   debugger;
           // })
       },

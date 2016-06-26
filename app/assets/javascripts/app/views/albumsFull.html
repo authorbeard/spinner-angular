@@ -1,9 +1,9 @@
-<!-- <div class="card-columns"> -->
-<div class="card-deck-wrapper">
-  <div class="card-deck">
-        <div ng-repeat="album in albums | filter:$ctrl.search ">
-          <album data='album'></album>
-        </div>
-  </div>
-<!-- </div> -->
-
+<div class="container-fluid">
+    <div class="row">
+        <!-- <div class="album cols col-sm-6 col-md-4 col-lg-3"> -->
+                <div ng-repeat="album in albums ">
+                      <album class="card cols col-xs-12 col-sm-6 col-md-4 col-lg-4" data='album'></album>
+                </div>
+         <!-- </div> --> <!--col -->
+    </div> <!--row-->
+</div> <!--container-->

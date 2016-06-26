@@ -50,6 +50,12 @@ console.log(sortType)
 
        }
 
+    $scope.$on('spin', function(event, alb){
+
+      $scope.userAlbums[alb.id].spins=alb.spins
+      debugger;
+    })
+
 
 
 

@@ -18,8 +18,8 @@ function UserAlbumFactory($resource) {
           update: { "params": {'type': '@type'},
                     method: 'PATCH', 
                     transformResponse: function(data, header){
-                        console.log(JSON.parse(data))
-                        return JSON.parse(data)
+                        // console.log(JSON.parse(data))
+                        return JSON.parse(data).user_album
                   }},
           create: { method: 'POST', 
                      transformResponse: function(data, header){
