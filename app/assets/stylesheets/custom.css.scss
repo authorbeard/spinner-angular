@@ -24,6 +24,16 @@ body {
 .alb-details {
 
 }*/
+/*.album-square-wrapper{
+  position: relative;
+
+  .card {
+    position: aboslute;
+    top: 0; bottom: 0; left: 0; right: 0;
+  }
+}*/
+
+
 albums {
   .container-fluid {
     margin-top: 20px;
@@ -46,30 +56,57 @@ albums {
   }*/
 }
 
-.card-group  {
-  /*width: 32%;*/
-  /*display: inline-block;*/
+.card {
+  height: 10rem;
+  border-radius: 0;
+  padding-bottom: 100%;
+  background-color: black;
+
+  img {
+    width: 100%;
+    border-radius: 0;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  div .alb-details {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 49%;
+  }
 }
 
-.card img {
-  width: 100%;
+.card:hover {
+  img {
+    opacity: 0.1;
+  }
+  .card-img-overlay {
+    opacity: 1;
+  }
 }
 
-.card-block {
-  padding: 10px;
+.card-img-overlay {
+  opacity: 0;
+  padding: .25rem;
+
+  h4: {
+    font-size: 1.35rem;
+  }
+
+  h6: {
+    font-size: 1.15rem;
+  }
 }
 
-/*.card-columns {
-  -webkit-column-count: 4;
-  column-count: 4;
-  -webkit-column-gap: 1px;
-  column-gap: 1px;
-}*/
 
 .spins {
-  margin-top: 5px;
-  border-top-style: solid;
-  border-top-color: #FF5733;
+  padding-left: 5px;
+  border-left-style: solid;
+  border-left-color: #FF5733;
+
+  p {
+    margin: 0;
+  }
 }
 
 .search-results {
@@ -81,6 +118,9 @@ albums {
   color: #FF5733;
 }
 
+/*button.albums-more {
+
+}*/
 
 /*SIGNIN FORM*/
 
