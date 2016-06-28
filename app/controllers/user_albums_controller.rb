@@ -13,8 +13,7 @@ class UserAlbumsController < ApplicationController
     end
 
     def show
-      # user_albums = UserAlbum.where(user_id: current_user.id)
-      # render json: user_albums
+      render json: current_user.user_albums.find(params[:id])
     end
 
     def edit
