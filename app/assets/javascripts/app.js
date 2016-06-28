@@ -60,6 +60,19 @@ angular
 
             })
 
+            .state('home.user_album', {
+                url: 'user_albums/:id',
+                templateUrl: 'app/views/albumDetail.html',
+                controller: 'AlbumCtrl as album',
+                resolve: {
+                    showAlbum: function($stateParams, albumFactory){
+                            debugger;
+                            console.log('home.user.album resolve')
+                            return albumFactory.show({id: $stateParams.id}).$promise
+                    }
+                }
+            })
+
             .state('home.newalbum', {
                 url: 'albums/new',
                 templateUrl: 'app/views/albumNew.html',
@@ -72,7 +85,7 @@ angular
                 templateUrl: 'app/views/albumDetail.html',
                 controller: 'AlbumCtrl as album',
                 resolve: {
-                        showAlbum: function($state, $stateParams, albumFactory){
+                        showAlbum: function($stateParams, albumFactory){
                             console.log('album show resolve')
                             return albumFactory.show({id: $stateParams.id}).$promise
                         }

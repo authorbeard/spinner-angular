@@ -7,20 +7,17 @@ class UserAlbumsController < ApplicationController
     end
 
     def new
-    
     end
 
     def create
     end
 
     def show
-      user_albums = UserAlbum.where(user_id: current_user.id)
-      render json: user_albums
+      # user_albums = UserAlbum.where(user_id: current_user.id)
+      # render json: user_albums
     end
-    
 
     def edit
-      
     end
 
     def update
@@ -32,7 +29,8 @@ class UserAlbumsController < ApplicationController
     end
 
     def delete
-    
+      current_user.user_albums.find_by(album_id: @album.id).delete
+      redirect_to albums_path, :notice=>"Okay, you ain't got that one anymore."
     end
 
     private

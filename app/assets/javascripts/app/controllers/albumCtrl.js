@@ -1,6 +1,6 @@
 function AlbumCtrl($scope, showAlbum, userAlbumFactory){
     var ctrl=this
-
+debugger;
     console.log('album show ctrl')
 
     var showAlbum = showAlbum
