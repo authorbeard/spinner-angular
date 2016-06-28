@@ -37,6 +37,7 @@ angular
                 url: 'user/:id',
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
+                controllerAs: 'user',
                 onEnter: function($state){
                     console.log('top of user onEnter')
                         if (!sessionStorage['currUser']){

@@ -10,6 +10,6 @@
                 <h6 class="card-text text-muted" ng-if="data.spins" data-spins="{{data.spins}}">Spin Count: {{data.spins}}</h6>
                 <h6 class="card-text text-muted" ng-if="data.spins">Last Spin: {{data.last_spun | date:'short'}}</h6>
             </div>
-        <button type="button" class="spin btn btn-secondary">Spin it!</button>
+        <button ng-click="spin" type="button" class="spin btn btn-secondary">Spin it!</button>
     </div>
 </div>

@@ -2,12 +2,12 @@ function UserCtrl($scope, userAlbums, $filter){
     var ctrl = this
 
     ctrl.currUser = $scope.$parent.currUser
-    $scope.userAlbums = userAlbums
+    ctrl.userAlbums = userAlbums
 
     ctrl.selection = 20
 
     ctrl.getDispAlbums=function(){
-        $scope.displayAlbums = $scope.userAlbums.slice(0, ctrl.selection)
+        ctrl.displayAlbums = ctrl.userAlbums.slice(0, ctrl.selection)
     }
 
     ctrl.getDispAlbums()
@@ -28,7 +28,7 @@ function UserCtrl($scope, userAlbums, $filter){
 
 console.log(sortType)
         if (sortType === 'never'){
-            $scope.displayAlbums=userAlbums.filter(function(album){
+            ctrl.displayAlbums=userAlbums.filter(function(album){
                 return album.spins === 0
              })
          }else if (sortType === 'most'){
@@ -37,12 +37,12 @@ console.log(sortType)
             var spunAlbs=userAlbums.filter(function(album){
                 return album.spins !== 0
               })
-            $scope.property="spins"
-            $scope.reverse=true
-            $scope.displayAlbums=$filter('orderBy')(spunAlbs, $scope.property, $scope.reverse)
+            ctrl.property="spins"
+            ctrl.reverse=true
+            ctrl.displayAlbums=$filter('orderBy')(spunAlbs, ctrl.property, ctrl.reverse)
 
          }else if (sortType === 'alpha'){
-            $scope.displayAlbums=$filter('orderBy')(userAlbums, 'album.artist.name')
+            ctrl.displayAlbums=$filter('orderBy')(userAlbums, 'album.artist.name')
          }else if (sortType === 'reset'){
             ctrl.getDispAlbums()
          }
@@ -52,7 +52,7 @@ console.log(sortType)
 
     $scope.$on('spin', function(event, alb){
 
-      $scope.userAlbums[alb.id].spins=alb.spins
+      ctrl.userAlbums[alb.id].spins=alb.spins
       debugger;
     })
 
