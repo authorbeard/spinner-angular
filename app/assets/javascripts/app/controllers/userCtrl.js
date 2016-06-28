@@ -48,16 +48,6 @@ function UserCtrl($scope, userAlbums, $filter){
 
        }
 
-       // $scope.$watch(function (){
-
-       // }, )
-    
-
-
-
-
-
-
 }
 
 angular 

@@ -1,15 +1,10 @@
 function Album(userAlbumFactory, albumFactory){
     return {
-      // scope: {
-      //     album: '='
-      // },
-      transclude: true,
       controller: function($scope){
-          // debugger;
+
           this.spin=function(newAlb){
-            debugger;
-              // THE BELOW WORKS, BUT ONLY ON THIS SCOPE
-              $scope.album = newAlb
+              $scope.album.spins=newAlb.spins
+              $scope.album.last_spun=newAlb.last_spun
           }
       },
       controllerAs: 'alb',
@@ -21,19 +16,10 @@ function Album(userAlbumFactory, albumFactory){
                 var newAlb=userAlbumFactory.update({id: alb.id, spins: (alb.spins + 1)}, function(response){
                 alb=newAlb
                 $ctrl.spin(newAlb)
-                // $scope.$emit('spin', response)
                 })
-            $scope.$apply()
             })
-
-
-            $elem.addClass('ng-mouseenter="alert()"')
-
-
       },
-
-      templateUrl: 'app/views/albumTile.html',
-      
+      templateUrl: 'app/views/albumTile.html',      
     }
 
 }
