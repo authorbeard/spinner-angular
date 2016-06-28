@@ -1,32 +1,31 @@
 function Album(userAlbumFactory, albumFactory){
     return {
-      scope: {
-          data: '='
-      },
-      
+      // scope: {
+      //     album: '='
+      // },
+      transclude: true,
       controller: function($scope){
-        this.album=$scope.data
-
+          // debugger;
           this.spin=function(newAlb){
             debugger;
-              // $scope.data.spins ++
-              $scope.data = newAlb
+              // THE BELOW WORKS, BUT ONLY ON THIS SCOPE
+              $scope.album = newAlb
           }
       },
       controllerAs: 'alb',
       link: function($scope, $elem, $attrs, $ctrl){
-            var album=$scope.data
-            // debugger;
+            var alb=$scope.album
             var btn=$elem.find('button')
+            var ctrl=$ctrl
             btn.on('click', function(){
-              // debugger;
-                newAlb=userAlbumFactory.update({id: album.id, spins: (album.spins + 1)}, function(response){
-                // debugger;
+                var newAlb=userAlbumFactory.update({id: alb.id, spins: (alb.spins + 1)}, function(response){
+                alb=newAlb
                 $ctrl.spin(newAlb)
                 // $scope.$emit('spin', response)
                 })
-            //   // $scope.data=album
+            $scope.$apply()
             })
+
 
             $elem.addClass('ng-mouseenter="alert()"')
 

@@ -1,14 +1,14 @@
 
-<img class="card-img" ng-src="assets/{{data.album.cover}}" alt="Card image">
+<img class="card-img" ng-src="assets/{{album.album.cover}}" alt="Card image">
 <div class="card-img-overlay card-inverse">
     <div class="alb-info">
             <div class="alb-details">
-                <h4 class="card-title">{{data.album.title}} </h4>
-                <h6 class="card-subtitle text-muted" data-artid="{{data.artist.id}}"> {{data.album.artist.name}}</h6>
+                <h4 class="card-title">{{album.album.title}} </h4>
+                <h6 class="card-subtitle text-muted" data-artid="{{album.artist.id}}"> {{album.album.artist.name}}</h6>
             </div>
             <div class="alb-details spins">
-                <h6 class="card-text text-muted" ng-if="data.spins" data-spins="{{data.spins}}">Spin Count: {{data.spins}}</h6>
-                <h6 class="card-text text-muted" ng-if="data.spins">Last Spin: {{data.last_spun | date:'short'}}</h6>
+                <h6 class="card-text text-muted" ng-if="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}}</h6>
+                <h6 class="card-text text-muted" ng-if="album.spins">Last Spin: {{album.last_spun | date:'short'}}</h6>
             </div>
         <button ng-click="spin" type="button" class="spin btn btn-secondary">Spin it!</button>
     </div>

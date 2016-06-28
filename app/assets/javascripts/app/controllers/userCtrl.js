@@ -25,8 +25,6 @@ function UserCtrl($scope, userAlbums, $filter){
     })
 
     ctrl.spinOpts=function(sortType){
-
-console.log(sortType)
         if (sortType === 'never'){
             ctrl.displayAlbums=userAlbums.filter(function(album){
                 return album.spins === 0
@@ -50,11 +48,10 @@ console.log(sortType)
 
        }
 
-    $scope.$on('spin', function(event, alb){
+       // $scope.$watch(function (){
 
-      ctrl.userAlbums[alb.id].spins=alb.spins
-      debugger;
-    })
+       // }, )
+    
 
 
 

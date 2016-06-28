@@ -1,13 +1,12 @@
 function Albums (){
   return {
       scope: {
-          albums: "=data"
+          data: "="
       },
       controller: function($scope){
-          this.albums = $scope.albums
-
+          this.albums = $scope.data
       },
-      controllerAs: 'albums',
+      controllerAs: 'albsDir',
       link: function($scope, $elem, $attrs, $ctrl){
           // debugger;
           // $scope.$on('spin', function(event){
