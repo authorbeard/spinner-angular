@@ -30,7 +30,6 @@ function UserCtrl($scope, userAlbums, $filter){
                 return album.spins === 0
              })
          }else if (sortType === 'most'){
-
           console.log('elseif')
             var spunAlbs=userAlbums.filter(function(album){
                 return album.spins !== 0
@@ -38,7 +37,6 @@ function UserCtrl($scope, userAlbums, $filter){
             ctrl.property="spins"
             ctrl.reverse=true
             ctrl.displayAlbums=$filter('orderBy')(spunAlbs, ctrl.property, ctrl.reverse)
-
          }else if (sortType === 'alpha'){
             ctrl.displayAlbums=$filter('orderBy')(userAlbums, 'album.artist.name')
          }else if (sortType === 'reset'){

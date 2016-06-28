@@ -3,13 +3,13 @@
 <div class="card-img-overlay card-inverse">
     <div class="alb-info">
             <div class="alb-details">
-                <h4 class="card-title">{{album.album.title}} </h4>
+                <a href="" ui-sref="home.album({id: album.album.id})"><h4 class="card-title">{{album.album.title}} </h4>
                 <h6 class="card-subtitle text-muted" data-artid="{{album.artist.id}}"> {{album.album.artist.name}}</h6>
             </div>
             <div class="alb-details spins">
                 <h6 class="card-text text-muted" ng-if="album.spins" data-spins="{{album.spins}}">Spin Count: {{album.spins}}</h6>
                 <h6 class="card-text text-muted" ng-if="album.spins">Last Spin: {{album.last_spun | date:'short'}}</h6>
-            </div>
+            </div></a>
         <button ng-click="spin" type="button" class="spin btn btn-secondary">Spin it!</button>
     </div>
 </div>

@@ -16,6 +16,6 @@
   <p>Search results: </p>
   <ul ng-repeat='album in albFilter.albums | filter:$ctrl.search '>
     
-    <li class="search-results"><a href="" ui-sref="home.album({id: album.album.id})" class="search_results">Artist: {{ album.album.artist.name }} | Album: {{album.album.title}} <span ng-if="album.spins">| Last Listen: {{ album.last_spun | date: 'short' }} | Spins: {{album.spins}}</span> </li>
+    <li class="search-results"><a href="" ui-sref="home.album({id: album.album.id})" class="search_results">Artist: {{ album.album.artist.name }} | Album: {{album.album.title}} <span ng-if="album.spins">| Spins: {{album.spins}} | Last Listen: {{ album.last_spun | date: 'short' }}</span> </li>
   </ul>
 </div>
