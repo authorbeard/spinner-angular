@@ -1,41 +1,35 @@
 class SongsController < ApplicationController
 
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  respond_to :json
 
   def index
-    @songs=Song.all
+    @songs=Song.all.includes(:artist=>[:id, :name])
   end
 
-  def search   
-    @song = Song.find_by(title: params[:title])
-    render json: @song
-  end
-
-  def import
-
-  end
 
   def show
-    @song=Song.find_by(id: params[:id])
-    @song_artist=@song.artist
-    render json: @song_artist }
-  end
-
-  def new
+    render json: Song.find(params[:id])
   end
 
   def create
-  end
-
-  def edit
+    song=Song.create(song_params)
+    render json: song
   end
 
   def update
+    render json: Song.update(song_params)
   end
 
   def destroy
+    Song.find(params[:id]).destroy
   end
 
+  private
+
+    def song_params
+      params.require(:song).permit(:id, :title, :artist=>[], :album=>[])
+    end
 
 
 

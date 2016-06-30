@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_album, except: [:index, :new, :create]
+  before_action :set_album, except: [:index, :create, :update]
 
   respond_to :json
 
@@ -9,45 +9,22 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    render json: @album
-  end
-
-  def new
+    render json: Album.find(params[:id])
   end
 
   def create
-      if album = Album.find_by(title: album_params['title'])
-          album.update(album_params)
-          render json: album
-      else
-          album=Album.create(album_params)
-          render json: album
-      end
-  end
+    render json: Album.create(album_params)
 
-  def edit
-    redirect_to :back, :alert=>"You gotta be logged in & have that album to edit it" unless current_user.albums.include?(@album)
   end
 
   def update
-    @album.update(album_params)
-    redirect_to album_path(@album)
+    render json: @album.update(album_params)
   end
 
-  def destroy
-    
-  end
-
-  def add
-    current_user.albums << @album
-    # redirect_to :back, :notice=>"Awesome choice! <a href='#{album_path(@album)}'>Spin it now</a>"
-  end
-
-
-  def import_songs
-    @album.import_songs
-    redirect_to album_path(@album)
-  end
+  # def import_songs
+  #   @album.import_songs
+  #   redirect_to album_path(@album)
+  # end
 
   private
 

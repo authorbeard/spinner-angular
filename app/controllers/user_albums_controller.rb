@@ -6,21 +6,15 @@ class UserAlbumsController < ApplicationController
       render json: current_user.user_albums.includes(:album => [:artist, :songs])
     end
 
-    def new
-    end
-
     def create
+      current_user.albums << Album.find_or_create_by(params[:album])
     end
 
     def show
       render json: current_user.user_albums.find(params[:id])
     end
 
-    def edit
-    end
-
     def update
-      # byebug
       ua = current_user.user_albums.find(params[:id])
       if ua.update(ua_params)
         render json: ua
@@ -28,13 +22,13 @@ class UserAlbumsController < ApplicationController
     end
 
     def delete
-      current_user.user_albums.find_by(album_id: @album.id).delete
-      redirect_to albums_path, :notice=>"Okay, you ain't got that one anymore."
+      current_user.user_albums.delete(params[:id])
+      render json: current_user.user_albums
     end
 
     private
       def ua_params
-        params.require(:user_album).permit(:id, :spins)
+        params.require(:user_album).permit(:id, :spins, :album=>[])
       end
 
 
