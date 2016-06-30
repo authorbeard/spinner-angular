@@ -9,16 +9,10 @@ Rails.application.routes.draw do
     end
     
     resources :users, only: [:show, :edit, :update, :destroy]
-    post "users/:id/albums/:id/remove", to: "users#remove_album", as: "remove_album"
-    get "users/:id/collection", to: "users#collection", as: "collection"
+    
+    resources :albums, only: [:index, :show, :create, :update, :destroy]
 
-
-    resources :albums
-      post '/albums/:id/spin', to: 'albums#spin', as: "spin"
-      get '/albums/:id/import_songs', to: 'albums#import_songs', as: 'import_songs'
-      post '/albums/:id/add', to: 'albums#add', as: 'add_album'
-
-    resources :songs
+    resources :songs, only: [:index, :show, :create, :update, :destroy]
 
     resources :user_albums, only: [:index, :show, :create, :update, :destroy]
 

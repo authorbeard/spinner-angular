@@ -11,6 +11,7 @@ class UserAlbumsController < ApplicationController
     end
 
     def show
+  byebug
       render json: current_user.user_albums.find(params[:id])
     end
 

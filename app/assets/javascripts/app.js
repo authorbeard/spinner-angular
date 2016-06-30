@@ -68,7 +68,8 @@ angular
                           showAlbum: function($stateParams, userAlbumFactory){
                                 // debugger;
                                 console.log('home.user.album resolve')
-                                return userAlbumFactory.show({id: $stateParams.id}).$promise
+                                debugger;
+                                return userAlbumFactory.show({id: $stateParams.ua_id}).$promise
                                 debugger;
                         }
                 },
