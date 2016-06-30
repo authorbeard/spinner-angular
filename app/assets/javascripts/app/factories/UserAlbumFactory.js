@@ -2,8 +2,7 @@ function UserAlbumFactory($resource) {
     console.log('userAlbumFactory')
 
     var provider = '/user_albums/:id'
-    var params = { id: '@id',
-                   ua_id: '@ua_id'
+    var params = { id: '@id'
                  }
 
     var useralbum = $resource(provider, params,  {
