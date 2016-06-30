@@ -1,7 +1,7 @@
 function UserAlbumFactory($resource) {
     console.log('userAlbumFactory')
 
-    var detail = 'users/:user_id/user_albums/:id'
+    var detail = 'api/v1/users/:user_id/user_albums/:id'
     var index = 'user_albums/:id'
     var params = { user_id: '@user_id',
                    id: '@id'
