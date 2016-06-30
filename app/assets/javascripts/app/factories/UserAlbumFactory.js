@@ -1,11 +1,13 @@
 function UserAlbumFactory($resource) {
     console.log('userAlbumFactory')
 
-    var provider = '/user_albums/:id'
-    var params = { id: '@id'
+    var detail = 'user/:user_id/user_albums/:id'
+    var index = 'user_albums/:id'
+    var params = { user_id: '@user_id',
+                   id: '@id'
                  }
 
-    var useralbum = $resource(provider, params,  {
+    var useralbum = $resource(index, params,  {
           index: { method: 'GET',
                    isArray: true,
                    transformResponse: function(data, header){

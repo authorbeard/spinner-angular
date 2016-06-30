@@ -2,8 +2,9 @@
 <img class="card-img" ng-src="assets/{{album.album.cover}}" alt="Card image">
 <div class="card-img-overlay card-inverse">
     <div class="alb-info">
+            <a href="" ui-sref="home.user.album({user_id: currUser.id, id: album.id})">
             <div class="alb-details">
-                <a href="" ui-sref="home.user.album({user_id: currUser.id, id: album.id})"><h4 class="card-title">{{album.album.title}} </h4>
+                <h4 class="card-title">{{album.album.title}} </h4>
                 <h6 class="card-subtitle text-muted" data-artid="{{album.artist.id}}"> {{album.album.artist.name}}</h6>
             </div>
             <div class="alb-details spins">
