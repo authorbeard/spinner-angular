@@ -26,7 +26,6 @@ angular
                 controller: 'SessionCtrl as session',
                 onEnter: function($state){
                         if (sessionStorage['currUser']){
-                            console.log('redirect from auth')
                             var user = JSON.parse(sessionStorage['currUser'])
                             $state.go('home.user', {id: user.id})
                         }
@@ -39,9 +38,7 @@ angular
                 controller: 'UserCtrl as user',
                 controllerAs: 'user',
                 onEnter: function($state){
-                    console.log('top of user onEnter')
                         if (!sessionStorage['currUser']){
-                            console.log('redirect from user onEnter')
                             $state.go('home.auth', {}, {reload: true})
                         }
                 },
@@ -49,7 +46,8 @@ angular
                          userAlbums: function($state, $stateParams, userAlbumFactory){
                                 if (sessionStorage['currUser']){
                                 console.log('session info, resolving ualbums')
-                                    return userAlbumFactory.index().$promise
+                                    var user = JSON.parse(sessionStorage['currUser'])
+                                    return userAlbumFactory.index({user_id: user.id}).$promise
                                     debugger;
                                 }else{
                                 console.log('no session info, onEnter should redirect')

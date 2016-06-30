@@ -19,9 +19,9 @@ function HomeCtrl(Auth, $scope, $state){
 
 
     home.setUser = function(userObj){
-        // debugger;
-        console.log('setting user')
+        //this line makes currUser info avail to onEnter, resolve
         sessionStorage['currUser']=JSON.stringify(userObj.user)
+        //this line is for use in other views/nested routes
         $scope.currUser = userObj.user
         $state.go('home.user', {id: $scope.currUser.id })
     }
@@ -45,7 +45,7 @@ function HomeCtrl(Auth, $scope, $state){
 
     $scope.$on('devise:unauthorized', function(event, xhr, deferred){
         debugger;
-        home.errors = 'Whoops. Check yer login credentials.'
+        $scope.errors = 'Whoops. Check yer login credentials.'
     })
 
     $scope.$on('error'), function(event, error){
