@@ -33,7 +33,7 @@ angular
             })
 
             .state('home.user', {
-                url: 'user/:id',
+                url: 'users/:id',
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
                 controllerAs: 'user',
@@ -58,17 +58,16 @@ angular
 
             })
 
-            .state('home.user.album', {
-                url: '/albums/:id',
+            .state('home.user_album', {
+                url: 'user/:user_id/user_albums/:id',
                 templateUrl: 'app/views/albumDetail.html',
                 controller: 'AlbumCtrl as album',
                 resolve: {
                           showAlbum: function($stateParams, userAlbumFactory){
                                 // debugger;
                                 console.log('home.user.album resolve')
-                                debugger;
-                                return userAlbumFactory.show({id: $stateParams.id}).$promise
-                                debugger;
+                                var user=JSON.parse(sessionStorage['currUser'])
+                                return userAlbumFactory.show({ user_id: user.id, id: $stateParams.id }).$promise
                         }
                 },
             })

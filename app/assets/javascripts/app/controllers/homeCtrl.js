@@ -15,9 +15,6 @@ function HomeCtrl(Auth, $scope, $state){
 
     home.currUser()
 
-    
-
-
     home.setUser = function(userObj){
         //this line makes currUser info avail to onEnter, resolve
         sessionStorage['currUser']=JSON.stringify(userObj.user)

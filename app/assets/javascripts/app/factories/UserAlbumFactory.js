@@ -16,7 +16,7 @@ function UserAlbumFactory($resource) {
           show: { method: 'GET',
                    // isArray: true,
                    transformResponse: function(data, header){
-                    console.log(JSON.parse(data).user_album)
+                    console.log(JSON.parse(data))
                         return JSON.parse(data).user_album
                   }},
           update: { "params": {'type': '@type'},

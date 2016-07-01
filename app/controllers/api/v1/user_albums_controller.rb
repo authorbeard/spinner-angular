@@ -1,5 +1,5 @@
 module Api
-  module v1
+  module V1
     class UserAlbumsController < ApplicationController
         before_action :authenticate_user!, except: [:index]
         respond_to :json
@@ -13,8 +13,7 @@ module Api
         end
 
         def show
-      byebug
-          render json: current_user.user_albums.find(params[:id])
+          render json: current_user.user_albums.includes(:album=>[:artist, :songs]).find(params[:id])
         end
 
         def update

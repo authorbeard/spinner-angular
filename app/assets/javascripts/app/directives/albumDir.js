@@ -1,7 +1,6 @@
 function Album(userAlbumFactory, albumFactory){
     return {
       controller: function($scope){
-// debugger;
           this.spin=function(newAlb){
               $scope.album.spins=newAlb.spins
               $scope.album.last_spun=newAlb.last_spun
