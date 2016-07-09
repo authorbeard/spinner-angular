@@ -1,19 +1,25 @@
 function Album(userAlbumFactory, albumFactory){
     return {
       controller: ['$scope', function($scope){
-          this.spin=function(newAlb){
+          var ctrl = this
+          ctrl.updateObj = {
+              user_id: $scope.currUser.id,
+              id: $scope.album.id,
+
+          }
+          ctrl.spin=function(newAlb){
               $scope.album.spins=newAlb.spins
               $scope.album.last_spun=newAlb.last_spun
           }
+          ctrl.currUser=$scope.currUser
       }],
       controllerAs: 'alb',
       link: function($scope, $elem, $attrs, $ctrl){
-            var alb=$scope.album
+
             var btn=$elem.find('button')
-            var ctrl=$ctrl
             btn.on('click', function(){
-                var newAlb=userAlbumFactory.update({id: alb.id, spins: (alb.spins + 1)}, function(response){
-                alb=newAlb
+                $ctrl.updateObj['spins'] = $scope.album.spins + 1
+                var newAlb = userAlbumFactory.update($ctrl.updateObj, function(response){
                 $ctrl.spin(newAlb)
                 })
             })
