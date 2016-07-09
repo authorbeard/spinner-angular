@@ -28,12 +28,9 @@ function SessionCtrl(Auth, $scope, $state){
             })
         }
     }
-
-    
-
-
-
 }
+
+    SessionCtrl.$inject = ['Auth', '$scope', '$state']
 
 angular
     .module('app')

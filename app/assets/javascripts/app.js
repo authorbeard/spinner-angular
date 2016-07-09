@@ -36,16 +36,16 @@ angular
                         }
                 }],
                 resolve: {
-                         userAlbums: function($state, $stateParams, userAlbumFactory){
-                                if (sessionStorage['currUser']){
-                                    var user = JSON.parse(sessionStorage['currUser'])
-                                    return userAlbumFactory.index({user_id: user.id}).$promise
-                                    debugger;
-                                }else{
-                                }
-                            
-                      }
-                },
+                         userAlbums: ['$state', '$stateParams', 'userAlbumFactory', function($state, $stateParams, userAlbumFactory){
+                                    if (sessionStorage['currUser']){
+                                        var user = JSON.parse(sessionStorage['currUser'])
+                                        return userAlbumFactory.index({user_id: user.id}).$promise
+                                        debugger;
+                                    }else{
+                                    }
+                                
+                                }]
+                        },
 
             })
 
@@ -54,10 +54,10 @@ angular
                 templateUrl: 'app/views/albumDetail.html',
                 controller: 'AlbumCtrl as album',
                 resolve: {
-                          showAlbum: function($stateParams, userAlbumFactory){  
+                          showAlbum: ['$stateParams', 'userAlbumFactory', function($stateParams, userAlbumFactory){  
                                 var user=JSON.parse(sessionStorage['currUser'])
                                 return userAlbumFactory.show({ user_id: user.id, id: $stateParams.id }).$promise
-                        }
+                        }]
                 },
             })
 
@@ -73,9 +73,9 @@ angular
                 templateUrl: 'app/views/albumDetail.html',
                 controller: 'AlbumCtrl as album',
                 resolve: {
-                        showAlbum: function($stateParams, albumFactory){
+                        showAlbum: ['$stateParams', 'albumFactory', function($stateParams, albumFactory){
                             return albumFactory.show({id: $stateParams.id}).$promise
-                        }
+                        }]
                 },                
             })
 

@@ -39,6 +39,8 @@ function UserAlbumFactory($resource) {
 
 }
 
+  UserAlbumFactory.$inject = ['$resource']
+
 angular
     .module('app')
     .factory('userAlbumFactory', UserAlbumFactory)

@@ -54,12 +54,9 @@ function HomeCtrl(Auth, $scope, $state){
         debugger;
         console.log('Whoops. Check yer login credentials')
     }
-
-
-
-
-
 }
+
+    HomeCtrl.$inject = ['Auth', '$scope', '$state']
 
 angular 
     .module('app')

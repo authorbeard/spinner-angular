@@ -1,11 +1,11 @@
 function Album(userAlbumFactory, albumFactory){
     return {
-      controller: function($scope){
+      controller: ['$scope', function($scope){
           this.spin=function(newAlb){
               $scope.album.spins=newAlb.spins
               $scope.album.last_spun=newAlb.last_spun
           }
-      },
+      }],
       controllerAs: 'alb',
       link: function($scope, $elem, $attrs, $ctrl){
             var alb=$scope.album
@@ -22,6 +22,8 @@ function Album(userAlbumFactory, albumFactory){
     }
 
 }
+
+  Album.$inject = ['userAlbumFactory', 'albumFactory']
 
 angular
    .module('app')

@@ -27,6 +27,7 @@ function AlbumFactory($resource) {
 
 
 }
+  AlbumFactory.$inject = ['$resource']
 
 angular
     .module('app')

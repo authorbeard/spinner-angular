@@ -26,6 +26,7 @@ function Library($resource) {
 
 
 }
+  Library.$inject = ['$resource']
 
 angular
     .module('app')

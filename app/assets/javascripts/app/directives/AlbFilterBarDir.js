@@ -5,10 +5,10 @@ function AlbFilterDir (){
             scope: {
                     data: "="
                 },
-            controller: function($scope){
+            controller: ['$scope', function($scope){
                 // debugger;
                     this.albums = $scope.data
-                },
+                }],
             controllerAs: 'albFilter',
             link: function($scope, elem, attrs, ctrl){
                 var selector=elem.find('button')

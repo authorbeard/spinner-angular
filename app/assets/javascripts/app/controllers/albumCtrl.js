@@ -21,9 +21,9 @@ debugger;
       })
     }
 
-
-
 }
+
+    AlbumCtrl.$inject = ['$scope', 'showAlbum', 'userAlbumFactory']
 
 angular 
     .module('app')

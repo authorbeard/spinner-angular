@@ -47,6 +47,7 @@ function UserCtrl($scope, userAlbums, $filter){
        }
 
 }
+  UserCtrl.$inject = ['$scope', 'userAlbums', '$filter']
 
 angular 
     .module('app')

@@ -25,8 +25,9 @@ function NewAlbumCtrl($state, albumFactory){
         })
     }
 
-
 }
+
+  NewAlbumCtrl.$inject = ['$state', 'albumFactory']
 
 
 angular
