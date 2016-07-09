@@ -8,7 +8,7 @@ var AlbFilterBar = {
             this.albums = this.data
             this.filterSpins=function(filter){
                 var type = filter
-                // debugger;
+                debugger;
                 $scope.$emit('spinFilter', filter)
                 alert('you prob shoulda deleted this')
             }

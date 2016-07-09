@@ -1,13 +1,6 @@
 angular 
-    .module('app', ['ui.router', 
-                    'templates',
-                    'Devise',
-                    'ngCookies',
-                    'ngMessages',
-                    'ngResource',
-                    'ui.bootstrap'
-                    ])
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
+    .module('app', ['ui.router', 'templates', 'Devise', 'ngCookies', 'ngMessages', 'ngResource', 'ui.bootstrap'])
+    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'AuthProvider', 'AuthInterceptProvider', function ($stateProvider, $urlRouterProvider, $httpProvider, AuthProvider, AuthInterceptProvider){
         $httpProvider.defaults.withCredentials = true;
         AuthInterceptProvider.interceptAuth(true)
 
@@ -24,12 +17,12 @@ angular
                 url: 'auth', 
                 templateUrl: 'app/views/auth.html',
                 controller: 'SessionCtrl as session',
-                onEnter: function($state){
+                onEnter: ['$state', function($state){
                         if (sessionStorage['currUser']){
                             var user = JSON.parse(sessionStorage['currUser'])
                             $state.go('home.user', {id: user.id})
                         }
-                    }
+                    }]
             })
 
             .state('home.user', {
@@ -37,20 +30,18 @@ angular
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
                 controllerAs: 'user',
-                onEnter: function($state){
+                onEnter: ['$state', function($state){
                         if (!sessionStorage['currUser']){
                             $state.go('home.auth', {}, {reload: true})
                         }
-                },
+                }],
                 resolve: {
                          userAlbums: function($state, $stateParams, userAlbumFactory){
                                 if (sessionStorage['currUser']){
-                                console.log('session info, resolving ualbums')
                                     var user = JSON.parse(sessionStorage['currUser'])
                                     return userAlbumFactory.index({user_id: user.id}).$promise
                                     debugger;
                                 }else{
-                                console.log('no session info, onEnter should redirect')
                                 }
                             
                       }
@@ -63,9 +54,7 @@ angular
                 templateUrl: 'app/views/albumDetail.html',
                 controller: 'AlbumCtrl as album',
                 resolve: {
-                          showAlbum: function($stateParams, userAlbumFactory){
-                                // debugger;
-                                console.log('home.user.album resolve')
+                          showAlbum: function($stateParams, userAlbumFactory){  
                                 var user=JSON.parse(sessionStorage['currUser'])
                                 return userAlbumFactory.show({ user_id: user.id, id: $stateParams.id }).$promise
                         }
@@ -85,7 +74,6 @@ angular
                 controller: 'AlbumCtrl as album',
                 resolve: {
                         showAlbum: function($stateParams, albumFactory){
-                            console.log('album show resolve')
                             return albumFactory.show({id: $stateParams.id}).$promise
                         }
                 },                
@@ -101,4 +89,4 @@ angular
         $urlRouterProvider.otherwise('auth')
 
 
-    })
+    }])
