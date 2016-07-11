@@ -1,5 +1,4 @@
 function UserAlbumFactory($resource) {
-    console.log('userAlbumFactory')
 
     var detail = 'api/v1/users/:user_id/user_albums/:id'
     var index = 'user_albums/:id'
