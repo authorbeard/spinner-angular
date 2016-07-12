@@ -1,12 +1,12 @@
 
     <div ng-if="album.data.spins">
-      <h4>Spins: <span ng-bind="album.data.spins"></span> | Last Spun: <span ng-bind="album.data.last_spun | date:short"></p></h4>
+      <h4>Spins: <span ng-bind="album.data.spins"></span> | Last Spun: <span ng-bind="album.data.last_spun | date:'medium'"></p></h4>
 
-      <button class="album detail spin_button" ng-click="album.spin(album.data.album.id)">Spin it again!</button>
+      <button class="album detail spin_button" ng-click="album.spin(album.data)">Spin it again!</button>
     </div>
 
     <div ng-if="!album.data.spins">
-      <button class="album detail spin_button" ng-click="album.spin(album.data.album.id)">You should spin this one!</button>
+      <button class="album detail spin_button" ng-click="album.spin()">You should spin this one!</button>
     </div>
 
 

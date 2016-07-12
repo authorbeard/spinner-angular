@@ -1,7 +1,8 @@
 function AlbumCtrl($scope, showAlbum, userAlbumFactory){
     var ctrl=this
+    ctrl.currUser=$scope.currUser
     console.log('album show ctrl')
-debugger;
+
     var showAlbum = showAlbum
     ctrl.setAlbum = function(showAlbum) {
         if (showAlbum.albums){
@@ -14,10 +15,9 @@ debugger;
 
     ctrl.setAlbum(showAlbum)
 
-    ctrl.spin = function(id){
-        userAlbumFactory.update({album_id: id}, function(resp){
-        ctrl.data.spins ++
-        ctrl.data.last=Date.now()
+    ctrl.spin = function(){
+        userAlbumFactory.update({user_id: ctrl.currUser.id, id: ctrl.data.id, spins: ctrl.data.spins+1}, function(resp){
+            ctrl.data=resp
       })
     }
 

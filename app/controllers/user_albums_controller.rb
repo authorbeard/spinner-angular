@@ -15,6 +15,7 @@ class UserAlbumsController < ApplicationController
     end
 
     def update
+      byebug
       ua = current_user.user_albums.find(params[:id])
       if ua.update(ua_params)
         render json: ua
