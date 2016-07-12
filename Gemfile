@@ -24,6 +24,8 @@ gem 'figaro'
 gem 'paperclip'
 gem 'devise'
 
+gem 'faraday'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

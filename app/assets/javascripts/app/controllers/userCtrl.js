@@ -2,6 +2,7 @@ function UserCtrl($scope, userAlbums, $filter){
     var ctrl = this
 
     ctrl.currUser = $scope.$parent.currUser
+    console.log($scope.$parent.currUser)
     ctrl.userAlbums = userAlbums
 
     ctrl.selection = 20

@@ -2,17 +2,21 @@
 
 <nav role="navigation">
     <div class='user-nav' id='user-nav'>
-        <div  ng-show="currUser">
+        <div ng-show="currUser">
             <div ng-show="currUser.name ">
                 <h3><a href="" ui-sref="home.user({id: currUser.id})">Hi {{ currUser.name }}</a></h3>
-                <p>Collection size: {{ currUser.user_albums.length}} </p>
-                <a href="" ui-sref="home.newalbum">Add a New Album</a>
             </div>
 
             <div ng-show="!currUser.name ">
-                <label>Hey, you should choose a username</label>
+                <p>Hey, you should choose a username</p>
                     <p>edit user directive</p>
             </div>
+
+            <div ng-show="!currUser.discogs.empty">
+                <a href='discogs/auth'>Discogs is awesome you should synch it</a><br />
+            </div>
+            
+            <a href="" ui-sref="home.newalbum">Add a New Album (manually)</a><br />
             <button class="btn btn-primary" ng-click='home.logout()'>Log me out</span>
         </div>
     </div>

@@ -7,7 +7,6 @@ class DiscogsController < ApplicationController
     token=discogs.auth_hash["oauth_token"]
     session[:exchange_secret]=discogs.auth_hash["oauth_token_secret"]
     redirect_to("https://discogs.com/oauth/authorize?oauth_token=#{token}")
-  
   end
 
   def callback
@@ -19,7 +18,7 @@ byebug
     discogs.exchange_token(auth_string)
     current_user.discogs=discogs.user_hash ###<--makes each attr accessible as .whatever
     current_user.save!
-    redirect_to user_path(current_user)
+    redirect_to root_path
 
   end
 
