@@ -10,19 +10,19 @@ function UserAlbumFactory($resource) {
           index: { method: 'GET',
                    isArray: true,
                    transformResponse: function(data, header){
-                        return JSON.parse(data).user_albums
+                        return JSON.parse(data)
                   }},
           show: { method: 'GET',
                    // isArray: true,
                    transformResponse: function(data, header){
                     console.log(JSON.parse(data))
-                        return JSON.parse(data).user_album
+                        return JSON.parse(data)
                   }},
           update: { "params": {'type': '@type'},
                     method: 'PATCH', 
                     transformResponse: function(data, header){
                         // console.log(JSON.parse(data))
-                        return JSON.parse(data).user_album
+                        return JSON.parse(data)
                   }},
           create: { method: 'POST', 
                      transformResponse: function(data, header){

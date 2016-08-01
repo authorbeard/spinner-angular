@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers=> [ :spotify ]
 
   store :discogs, accessors: [:oauth_token, :oauth_token_secret], coder: JSON
-  store :spotify, accessors: [:oauth_token, :oauth_token_secret], coder: JSON
+  # store :spotify, accessors: [:oauth_token, :oauth_token_secret], coder: JSON
 
   has_many :user_albums
   has_many :albums, through: :user_albums
