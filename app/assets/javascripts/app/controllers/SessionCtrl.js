@@ -21,7 +21,7 @@ function SessionCtrl(Auth, $scope, $state){
                 $scope.$emit('loginError', error.data.error)
             })
         }else{
-            Auth.login(this.user).then(function(resp){
+            Auth.login(this.user).then(function(resp){              
                 console.log('successful login')
             }, function(error){
                 $scope.$emit('loginError', error.data.error)

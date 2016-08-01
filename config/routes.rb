@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     root 'application#angular'
 
-    devise_for :users
+    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
     namespace :api, defaults: {format: :json } do
       namespace :v1 do

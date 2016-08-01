@@ -25,6 +25,8 @@ gem 'paperclip'
 gem 'devise'
 
 gem 'faraday'
+gem 'omniauth'
+gem 'omniauth-spotify'
 
 
 # Use ActiveModel has_secure_password

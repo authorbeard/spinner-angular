@@ -12,8 +12,12 @@
                     <p>edit user directive</p>
             </div>
 
+            <div ng-show="!currUser.provider">
+                <a href="/users/auth/spotify">This is even better if you add Spotify access</a>
+            </div>
+
             <div ng-show="!currUser.discogs.empty">
-                <a href='discogs/auth'>Discogs is awesome you should synch it</a><br />
+                <a href='discogs/auth'>Discogs is awesome you should sync it</a><br />
             </div>
             
             <a href="" ui-sref="home.newalbum">Add a New Album (manually)</a><br />
