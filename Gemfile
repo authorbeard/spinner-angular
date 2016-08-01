@@ -25,7 +25,7 @@ gem 'paperclip'
 gem 'devise'
 
 gem 'faraday'
-gem 'omniauth'
+gem 'omniauth-oauth2'
 gem 'omniauth-spotify'
 
 

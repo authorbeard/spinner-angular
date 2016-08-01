@@ -241,7 +241,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :spotify, Figaro.env.spotify_key, Figaro.env.spotify_secret, callback_url: 'users/omniauth_callbacks/spotify',
+  config.omniauth :spotify, Figaro.env.spotify_key, Figaro.env.spotify_secret, 
     scope: 'playlist-read-private playlist-modify-public playlist-modify-private streaming user-follow-modify user-follow-read user-library-read user-library-modify user-top-read' 
 
   # ==> Warden configuration

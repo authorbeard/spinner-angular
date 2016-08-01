@@ -19,7 +19,6 @@ angular
                 controller: 'SessionCtrl as session',
                 onEnter: ['$state', function($state){
                         if (sessionStorage['currUser']){
-                            debugger;
                             var user = JSON.parse(sessionStorage['currUser'])
                             $state.go('home.user', {id: user.id})
                         }
