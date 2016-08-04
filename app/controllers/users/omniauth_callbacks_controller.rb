@@ -3,6 +3,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def spotify
     byebug
+    if current_user
+      current_user.add_omniauth(request.env['omniauth.auth'])
+
+    end
     @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
       byebug

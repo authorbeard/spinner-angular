@@ -1,4 +1,4 @@
-function HomeCtrl(Auth, $scope, $state){
+function HomeCtrl(Auth, $scope, $state, $cookies){
     
     var home = this
 
@@ -17,9 +17,11 @@ function HomeCtrl(Auth, $scope, $state){
 
     home.setUser = function(userObj){
         //this line makes currUser info avail to onEnter, resolve
-        sessionStorage['currUser']=JSON.stringify(userObj)
+        // sessionStorage['currUser']=JSON.stringify(userObj)
+        $cookies.putObject('user', userObj)
+        debugger;
         //this line is for use in other views/nested routes
-        $scope.currUser = userObj
+        $scope.currUser = $cookies.getObject('user')
         $state.go('home.user', {id: $scope.currUser.id })
     }
 
@@ -36,7 +38,7 @@ function HomeCtrl(Auth, $scope, $state){
 
     $scope.$on('devise:logout', function(event, userObj){
         $scope.currentUser = null
-        sessionStorage.clear()
+        $cookies.remove('user')
         $state.go('home.auth', {}, {reload: true})
     })
 
@@ -55,7 +57,7 @@ function HomeCtrl(Auth, $scope, $state){
     }
 }
 
-    HomeCtrl.$inject = ['Auth', '$scope', '$state']
+    HomeCtrl.$inject = ['Auth', '$scope', '$state', '$cookies']
 
 angular 
     .module('app')

@@ -4,6 +4,7 @@ angular
         $httpProvider.defaults.withCredentials = true;
         AuthInterceptProvider.interceptAuth(true)
 
+
         $stateProvider
             .state('home', {
                 url: '/',
@@ -17,11 +18,10 @@ angular
                 url: 'auth', 
                 templateUrl: 'app/views/auth.html',
                 controller: 'SessionCtrl as session',
-                onEnter: ['$state', function($state){
-                        if (sessionStorage['currUser']){
-                            var user = JSON.parse(sessionStorage['currUser'])
-                            $state.go('home.user', {id: user.id})
-                        }
+                onEnter: ['$state', 'Auth', function($state, Auth){
+                            Auth.currentUser().then(function (){
+                                $state.go('home.user', {user_id: user.id})
+                            })
                     }]
             })
 
@@ -30,22 +30,20 @@ angular
                 templateUrl: 'app/views/user.html',
                 controller: 'UserCtrl as user',
                 controllerAs: 'user',
-                onEnter: ['$state', function($state){
-                        if (!sessionStorage['currUser']){
-                            $state.go('home.auth', {}, {reload: true})
-                        }
+                onEnter: ['$state', 'Auth', function($state, Auth) {
+                                Auth.currentUser().then(function (){
+
+                                }, function(error){
+                                    $state.go('home.auth')
+                    });
                 }],
                 resolve: {
-                         userAlbums: ['$state', '$stateParams', 'userAlbumFactory', function($state, $stateParams, userAlbumFactory){
-                                    if (sessionStorage['currUser']){
-                                        var user = JSON.parse(sessionStorage['currUser'])
+                         userAlbums: ['$state', '$stateParams', 'userAlbumFactory', '$cookies', function($state, $stateParams, userAlbumFactory, $cookies){
+                                        debugger;
+                                        var user = $cookies.getObject('user')
                                         return userAlbumFactory.index({user_id: user.id}).$promise
-                                    }else{
-                                    }
-                                
-                                }]
-                        },
-
+                                    }],
+                         }
             })
 
             .state('home.user_album', {

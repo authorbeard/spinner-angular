@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers=> [ :spotify ]
 
   store :discogs, accessors: [:oauth_token, :oauth_token_secret], coder: JSON
+  store :spotify 
 
   has_many :user_albums
   has_many :albums, through: :user_albums
@@ -19,8 +20,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  def add_omniauth(auth)
+  byebug
+    self.provider=auth.provider
+    self.uid=auth.uid
+    self.spotify=auth['extra'].raw_info.to_json
+
+  end
+
   def last_album
     Album.find(self.user_albums.order(last_spun: :desc).first.album_id)
   end
 
 end
+
+
+### Raw info for Spotify (consider storing) ###
+# request.env['omniauth.auth']['extra'].raw_info.to_json
